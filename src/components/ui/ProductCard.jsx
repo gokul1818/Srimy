@@ -47,7 +47,7 @@ const addTocart =()=>{
           </div>
         </Link>
       </motion.div>
-      <div className="product_bottom d-flex justify-content-between">
+      <div className="product_bottom ">
         <span>₹{item.price}</span>
         <motion.span whileTap={{ scale: 1.2 }}>
           <i class="ri-add-fill" onClick={addTocart} ></i>

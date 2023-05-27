@@ -26,6 +26,11 @@ cursor: pointer;
     display: block;
     
 }
+.product_bottom{
+    display: flex;
+    justify-content: space-between;
+
+}
 
 .product_bottom span {
     font-weight: 700;
@@ -53,7 +58,7 @@ cursor: pointer;
     cursor: pointer;
     }
     .product_bottom{
-        width: 150px;
+        width: 280px;
         
     }
     
@@ -80,7 +85,7 @@ cursor: pointer;
     .product_info span{
         font-size: 12px;
     }
-    
+  
     .product_bottom span {
         font-size: 15px;
         font-weight: 700;
@@ -89,6 +94,7 @@ cursor: pointer;
     
     .product_bottom i {
         padding: 5px;
+        margin: 0%;
         background: rgb(37, 37, 37);
         color: #fff;
         border-radius: 5px;
