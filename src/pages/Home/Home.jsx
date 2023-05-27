@@ -17,6 +17,7 @@ import countertimer from "../../assets/images/counter-timer-img.png";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import LimitedOffer from "../../components/ui/limitedOffers";
 
 const Home = () => {
   const { data: products, loading } = useGetData("products");
@@ -48,6 +49,10 @@ const Home = () => {
     autoplaySpeed: 3000,
   };
 
+  const gradientColors = {
+    start: "#ff8800", // Starting color
+    end: "#ff0055", // Ending color
+  };
   return (
     <div>
       <Helmet title={"Home"}>
@@ -83,7 +88,7 @@ const Home = () => {
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Perspiciatis vitae harum natus nisi nam cumque nostrum
                     consequuntur distinctio neque iure.
-                  </p>
+                    </p>
                   <motion.button whileTap={{ scale: 1.2 }} className="shop_btn">
                     <Link
                       style={{
@@ -100,7 +105,7 @@ const Home = () => {
               <Col ld="6" md="6">
                 <div className="hero_img ">
                   <img className="" src={hero_img} alt="img"></img>
-                </div>
+                  </div>
               </Col> */}
             </Row>
           </Container>
@@ -109,9 +114,21 @@ const Home = () => {
           <Container>
             <Row>
               <Col lg="12">
-                <h3 className="text-center m-5">Trending Products</h3>
+                <h1 className="text-center  ">Trending Products</h1>
               </Col>
+              {/* <LimitedOffer /> */}
               <ProductList data={trendingProducts} />
+            </Row>
+          </Container>
+        </section>
+        <section className="limited offer">
+          <Container>
+            <Row>
+              <Col lg="12">
+                <h1 className="text-center m-5 ">Limmited offers</h1>
+              </Col>
+              <LimitedOffer />
+              {/* <ProductList data={trendingProducts} /> */}
             </Row>
           </Container>
         </section>
@@ -128,14 +145,14 @@ const Home = () => {
           </Container>
         </section>
         <section className="counter_page mt-3">
-          <Container>
+          {/* <Container>
             <Row>
               <Col className="mt-5" lg="6" md="6">
                 <div className="clock_content">
                   <h4>Limited Offers</h4>
                   <h3> sofa Chair</h3>
                 </div>
-                <Clock />
+                {/* <Clock /> 
                 <div className="text-start ms-5 mt-3">
                   <button className="counter_btn  ">
                     <Link
@@ -154,7 +171,7 @@ const Home = () => {
                 <img src={countertimer} alt="img"></img>
               </Col>
             </Row>
-          </Container>
+          </Container> */}
         </section>
         <section className="newarrivals_sale">
           <Container>

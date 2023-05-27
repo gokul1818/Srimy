@@ -166,6 +166,7 @@ const ProductDetails = () => {
                           <div className="form_grp">
                             <input
                               ref={reviewuser}
+                              
                               type="text"
                               required
                               placeholder="enter name"
