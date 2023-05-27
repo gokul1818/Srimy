@@ -13,7 +13,6 @@ import Service from "../../service/service";
 import ProductList from "../../components/ui/ProductList";
 // import products from "../../assets/data/products";
 import useGetData from "../../customhook/useGetData";
-import countertimer from "../../assets/images/counter-timer-img.png";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -35,7 +34,7 @@ const Home = () => {
     setbestProducts(filteredbest);
     setnewArrivals(filternew);
   }, [products]);
-  const year = new Date().getFullYear();
+  // const year = new Date().getFullYear();
   useEffect(() => {
     window.scrollTo(0, 0);
   });
@@ -49,10 +48,6 @@ const Home = () => {
     autoplaySpeed: 3000,
   };
 
-  const gradientColors = {
-    start: "#ff8800", // Starting color
-    end: "#ff0055", // Ending color
-  };
   return (
     <div>
       <Helmet title={"Home"}>
@@ -116,8 +111,8 @@ const Home = () => {
               <Col lg="12">
                 <h1 className="text-center  ">Trending Products</h1>
               </Col>
-              {/* <LimitedOffer /> */}
-              <ProductList data={trendingProducts} />
+
+              <ProductList data={trendingProducts} loading={loading} />
             </Row>
           </Container>
         </section>
@@ -127,8 +122,8 @@ const Home = () => {
               <Col lg="12">
                 <h1 className="text-center m-5 ">Limmited offers</h1>
               </Col>
+
               <LimitedOffer />
-              {/* <ProductList data={trendingProducts} /> */}
             </Row>
           </Container>
         </section>
@@ -140,7 +135,7 @@ const Home = () => {
               <Col lg="12">
                 <h3 className="text-center m-5">Best Products</h3>
               </Col>
-              <ProductList data={bestProducts} />
+              <ProductList data={bestProducts} loading={loading} />
             </Row>
           </Container>
         </section>
@@ -179,8 +174,8 @@ const Home = () => {
               <Col lg="12">
                 <h3 className="text-center m-5">New Arrivals Products</h3>
               </Col>
-              <ProductList data={newArrivals} />
-            </Row>
+              <ProductList data={newArrivals}  loading={loading} />
+            </Row> 
           </Container>
         </section>
       </Helmet>

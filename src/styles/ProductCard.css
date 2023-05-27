@@ -104,3 +104,50 @@ cursor: pointer;
 
 
 }
+
+.loading-card {
+    width: 300px;
+    height: 200px;
+    background-color: #cacaca;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    position: relative;
+  }
+  
+  .shine {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.4) 50%, transparent 100%);
+    background-size: 200% 100%;
+    background-position: -100% 0;
+    animation: shineAnimation 1s infinite;
+  }
+  
+  .content {
+    padding: 16px;
+  }
+  
+  .title {
+    width: 60%;
+    height: 40px;
+    margin-bottom: 8px;
+    background-color: #a8a8a8;
+  }
+  
+  .description {
+    width: 80%;
+    height: 20px;
+    background-color: #919191;
+  }
+  
+  @keyframes shineAnimation {
+    0% {
+      background-position: -100% 0;
+    }
+    100% {
+      background-position: 100% 0;
+    }
+  }
+  

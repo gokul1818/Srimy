@@ -2,62 +2,73 @@ import React, { useState, useEffect } from "react";
 import Helmet from "../../components/helmet/helmet";
 import CommonSection from "../../components/ui/Commonsection";
 import { Container, Row, Col } from "reactstrap";
-// import CommonSection from "../../components/ui/CommonSection";
 import "../../styles/shop.css";
-import product from "../../assets/data/products";
 import ProductList from "../../components/ui/ProductList";
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "../../firebase.config";
-
+import useGetData from "../../customhook/useGetData";
 const Shop = () => {
-  const [productdata, setproductdata] = useState(product);
+  const { data: product, loading } = useGetData("products");
+
+  useEffect(() => {
+    const shopdata = product.map((item) => item);
+    setProducts(shopdata);
+  }, [product]);
 
   const [products, setProducts] = useState([]);
-  useEffect(() => {
-    const fetchProducts = async () => {
-      const querySnapshot = await getDocs(collection(db, "products"));
-      const productsData = querySnapshot.docs.map((doc) => doc.data());
-      setProducts(productsData);
-    };
 
-    fetchProducts();
-  }, []);
+  const sortByFilter = (e) => {
+    const filtervalue = e.target.value;
+    if (filtervalue === "ascending") {
+      const sortedProducts = [...products].sort((a, b) => a.price - b.price);
+      setProducts(sortedProducts);
+    }
+    if (filtervalue === "decending") {
+      const sortedProducts = [...products].sort((a, b) => b.price - a.price);
+      setProducts(sortedProducts);
+    }
+  };
 
   const handleFilter = (e) => {
     const filtervalue = e.target.value;
+    // console.log(filtervalue)
+    if (filtervalue === "all") {
+      const filteredproduct = product.map((item) => item);
+      setProducts(filteredproduct);
+    }
     if (filtervalue === "sofa") {
       const filteredproduct = product.filter(
         (item) => item.category === "sofa"
       );
-      setproductdata(filteredproduct);
+      setProducts(filteredproduct);
     }
     if (filtervalue === "mobile") {
       const filteredproduct = product.filter(
         (item) => item.category === "mobile"
       );
-      setproductdata(filteredproduct);
+      setProducts(filteredproduct);
     }
     if (filtervalue === "watch") {
       const filteredproduct = product.filter(
         (item) => item.category === "watch"
       );
-      setproductdata(filteredproduct);
+      setProducts(filteredproduct);
     }
     if (filtervalue === "wireless") {
       const filteredproduct = product.filter(
         (item) => item.category === "wireless"
       );
-      setproductdata(filteredproduct);
+      setProducts(filteredproduct);
     }
   };
+
   const handleSearch = (e) => {
+    e.preventDefault();
     const searchteam = e.target.value;
     const searchProducts = product.filter((item) =>
       item.productName
         .toLocaleLowerCase()
         .includes(searchteam.toLocaleLowerCase())
     );
-    setproductdata(searchProducts);
+    setProducts(searchProducts);
   };
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -68,10 +79,11 @@ const Shop = () => {
       <section>
         <Container>
           <Row>
-            <Col lg="3" md="3" xs="6">
+            <Col lg="2" md="3" xs="6">
               <div className="filter_widget">
                 <select onChange={handleFilter}>
-                  <option>filter by category</option>
+                  {/* <option>filter by category</option> */}
+                  <option value="all">All</option>
                   <option value="sofa">sofa</option>
                   <option value="mobile">mobile</option>
                   <option value="watch">watches</option>
@@ -81,7 +93,7 @@ const Shop = () => {
             </Col>
             <Col lg="3" md="3" xs="6">
               <div className="filter_widget">
-                <select>
+                <select onChange={sortByFilter}>
                   <option>Sort By</option>
 
                   <option value="decending">High to Low</option>
@@ -107,12 +119,11 @@ const Shop = () => {
       <section>
         <Container>
           <Row>
-            {productdata.length === 0 ? (
+            {products.length === 0  && !loading ? (
               <h1 className="text-center fs-4">No products found</h1>
             ) : (
               // <ProductList data={productdata} />
-
-              <ProductList data={products} />
+        <ProductList data={products}  loading={loading}/>
             )}
           </Row>
         </Container>
