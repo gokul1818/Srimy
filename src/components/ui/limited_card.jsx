@@ -26,31 +26,36 @@ const Limited_card = ({ item }) => {
   };
 
   return (
-    <Col lg="3" md="4" sm="6" xs="6" className="">
+    <Col lg="3" md="6" sm="6" xs="6" className="">
       <section className="offer_card">
         <motion.div
           // whileTap={{ scale: 1.1, transition: { duration: 0.3 } }}
-          className="products_items"
+          className="products_items d-block"
         >
           <div>
-            <div className="discount_limit">
-              <p> {calculateDiscountPercentage()} %</p>
+            <div className="discountTag">
+              <i class="ri-price-tag-fill">
+                <div class="cross-line"></div>
+                <p> {calculateDiscountPercentage()} %</p>
+              </i>
+            </div>
+            <div className="discount">
+              <span className="">₹{item.originalPrice}</span>
             </div>
             <div className="offer_img">
               <img src={item.imageUrl} alt="img"></img>
             </div>
-            <div className="offer_info">
-              <h4>{item.productName}</h4>
-              <span className="ps-2 text-decoration-line-through text-success ">
-                MRP: ₹{item.originalPrice}
-              </span>
+            <div className="d-block info_limitpage">
+              <div className="offer_info">
+                <h4>{item.productName}</h4>
+              </div>
+              <div className="add_cart  ">
+                <span>₹{item.discountedPrice}</span>
+                <motion.span whileTap={{scale:'1.2'}} onClick={addTocart}>Add to cart</motion.span>
+              </div>
             </div>
           </div>
         </motion.div>
-        <div className="add_cart ">
-          <span>₹{item.discountedPrice}</span>
-          <span onClick={addTocart}>Add to cart</span>
-        </div>
       </section>
     </Col>
   );

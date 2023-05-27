@@ -52,7 +52,7 @@ const Home = () => {
     <div>
       <Helmet title={"Home"}>
         <section className="section">
-          <div className="mt-5 swipper">
+          <div className="mt-4 swipper">
             {/* <h1>Welcome to the Homepage</h1> */}
             <Slider {...settings}>
               <div className="swip">
@@ -109,7 +109,7 @@ const Home = () => {
           <Container>
             <Row>
               <Col lg="12">
-                <h1 className="text-center  ">Trending Products</h1>
+                <h1 className="text-center m-5 text-capitalize fs-2 fw-bold  ">Trending Products</h1>
               </Col>
 
               <ProductList data={trendingProducts} loading={loading} />
@@ -120,7 +120,7 @@ const Home = () => {
           <Container>
             <Row>
               <Col lg="12">
-                <h1 className="text-center m-5 ">Limmited offers</h1>
+                <h1 className="text-center m-5 text-capitalize fs-2 fw-bold ">Limmited offers</h1>
               </Col>
 
               <LimitedOffer />
@@ -133,7 +133,7 @@ const Home = () => {
           <Container>
             <Row>
               <Col lg="12">
-                <h3 className="text-center m-5">Best Products</h3>
+                <h3 className="text-center m-5 text-capitalize fs-2 fw-bold">Best Products</h3>
               </Col>
               <ProductList data={bestProducts} loading={loading} />
             </Row>
@@ -172,7 +172,7 @@ const Home = () => {
           <Container>
             <Row>
               <Col lg="12">
-                <h3 className="text-center m-5">New Arrivals Products</h3>
+                <h3 className="text-center m-5 text-capitalize fs-2 fw-bold">New Arrivals Products</h3>
               </Col>
               <ProductList data={newArrivals}  loading={loading} />
             </Row> 

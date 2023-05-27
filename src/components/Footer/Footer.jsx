@@ -33,7 +33,7 @@ const Footer = () => {
                   <Link
                     style={{
                       textDecorationLine: "none",
-                      color: "#3d3d3d",
+                      color: "#dedede",
                     }}
                   >
                     toy{" "}
@@ -43,7 +43,7 @@ const Footer = () => {
                   <Link
                     style={{
                       textDecorationLine: "none",
-                      color: "#3d3d3d",
+                      color: "#dedede",
                     }}
                     to="#"
                   >
@@ -54,7 +54,7 @@ const Footer = () => {
                   <Link
                     style={{
                       textDecorationLine: "none",
-                      color: "#3d3d3d",
+                      color: "#dedede",
                     }}
                     to="#"
                   >
@@ -65,7 +65,7 @@ const Footer = () => {
                   <Link
                     style={{
                       textDecorationLine: "none",
-                      color: "#3d3d3d",
+                      color: "#dedede",
                     }}
                     to="#"
                   >
@@ -84,7 +84,7 @@ const Footer = () => {
                   to='/cart'
                     style={{
                       textDecorationLine: "none",
-                      color: "#3d3d3d",
+                      color: "#dedede",
                     }}
                   >
                  cart{" "}
@@ -94,7 +94,7 @@ const Footer = () => {
                   <Link
                     style={{
                       textDecorationLine: "none",
-                      color: "#3d3d3d",
+                      color: "#dedede",
                     }}
                     to="/Shop"
                   >
@@ -105,7 +105,7 @@ const Footer = () => {
                   <Link
                     style={{
                       textDecorationLine: "none",
-                      color: "#3d3d3d",
+                      color: "#dedede",
                     }}
                     to="/Login"
                   >
@@ -116,7 +116,7 @@ const Footer = () => {
                   <Link
                     style={{
                       textDecorationLine: "none",
-                      color: "#3d3d3d",
+                      color: "#dedede",
                     }}
                     to="#"
                   >
@@ -135,7 +135,7 @@ const Footer = () => {
                   to='https://instagram.com/mr_rider.18?igshid=ZGUzMzM3NWJiOQ=='
                     style={{
                       textDecorationLine: "none",
-                      color: "#3d3d3d",
+                      color: "#dedede",
                     }}
                   >
                 <i class="ri-instagram-line me-2"></i>
@@ -146,7 +146,7 @@ const Footer = () => {
                   <Link
                     style={{
                       textDecorationLine: "none",
-                      color: "#3d3d3d",
+                      color: "#dedede",
                     }}
                     to="/Shop"
                   >
@@ -158,7 +158,7 @@ const Footer = () => {
                   <Link
                     style={{
                       textDecorationLine: "none",
-                      color: "#3d3d3d",
+                      color: "#dedede",
                     }}
                     to="/Login"
                   >
@@ -170,7 +170,7 @@ const Footer = () => {
                   <Link
                     style={{
                       textDecorationLine: "none",
-                      color: "#3d3d3d",
+                      color: "#dedede",
                     }}
                     to="#"
                   >
@@ -182,7 +182,7 @@ const Footer = () => {
                   <Link
                     style={{
                       textDecorationLine: "none",
-                      color: "#3d3d3d",
+                      color: "#dedede",
                     }}
                     to="#"
                   >

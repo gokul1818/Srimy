@@ -31,6 +31,7 @@ const Header = () => {
       path: "Cart",
       display: "Cart",
     },
+
   ];
   const logout = () => {
     signOut(auth)
@@ -88,7 +89,7 @@ const Header = () => {
                       }
                       style={{
                         textDecorationLine: "none",
-                        color: "black",
+                        color: "white",
                         marginRight: "20px",
                       }}
                       to={items.path}
