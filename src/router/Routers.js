@@ -11,10 +11,7 @@ import ProtectedRoute from "./protectedRoute";
 import { Navigate, Route, Routes } from "react-router-dom";
 // import Profile from "../pages/Profile/profile";
 import Profile from "../pages/Profile/profile";
-import AddProduct from "../admin/AddProduct";
-import AllProduct from "../admin/AllProduct";
-import DashBoard from "../admin/DashBoard";
-import Users from "../admin/Users";
+
 const Routers = () => {
   return (
     <>
@@ -35,14 +32,7 @@ const Routers = () => {
           }
         ></Route>
 
-        <Route path="/*" element={<ProtectedRoute/>}>
-          <Route path="home" element={<Checkout />}></Route>
-          <Route path="dashboard" element={<DashBoard />}></Route>
-          <Route path="dashboard/add-product" element={<AddProduct />}></Route>
-          <Route path="dashboard/all-products" element={<AllProduct />}></Route>
-          {/* <Route path="dashboard/users" element={<Users />}></Route> */}
-
-        </Route>
+    
         <Route
           path="profile"
           element={

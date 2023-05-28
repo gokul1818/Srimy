@@ -1,9 +1,8 @@
 import ProductCard from "./ProductCard";
 import useGetData from "../../customhook/useGetData";
+import { Row ,Col} from "reactstrap";
 
-
-
-const ProductList = ({data,loading} ) => {
+const ProductList = ({ data, loading }) => {
   // const { data: productData, loading } = useGetData(`products`);
 
   return (
@@ -11,13 +10,14 @@ const ProductList = ({data,loading} ) => {
       {!loading ? (
         data.map((item, index) => <ProductCard item={item} key={index} />)
       ) : (
+        <Row>
+
+         <Col lg='12'>
         <div className="loading-card">
           <div className="shine"></div>
-          <div className="content">
-            <div className="title shine"></div>
-            <div className="description shine"></div>
-          </div>
         </div>
+         </Col> 
+        </Row>
       )}
       {/* {data.map((item, index) => (
         <ProductCard item={item} key={index} />

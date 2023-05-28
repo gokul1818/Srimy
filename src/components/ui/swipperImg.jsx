@@ -16,16 +16,23 @@ const SwipperImg = () => {
   };
   return (
     <div className="mt-4 swipper">
-      <Slider {...settings}>
-          {swipper.map((item, index) => (
-        <div className="swip" key={index}>
-            {/* <img src={item.imageUrl} alt="" /> */}
-            {/* <img src={item.imageUrl} alt="" /> */}
-            <img src={item.imageUrl} alt=""  />
-
+      {loading ? (
+        <div className="Swipper_card">
+          <div className="shine"></div>
+         
+          
         </div>
+      ) : (
+        <Slider {...settings}>
+          {swipper.map((item, index) => (
+            <div className="swip" key={index}>
+              {/* <img src={item.imageUrl} alt="" /> */}
+              {/* <img src={item.imageUrl} alt="" /> */}
+              <img src={item.imageUrl} alt="" />
+            </div>
           ))}
-      </Slider>
+        </Slider>
+      )}
     </div>
   );
 };

@@ -22,10 +22,10 @@ const Home = () => {
 
   useEffect(() => {
     const filteredTrending = products.filter(
-      (items) => items.category === "chair"
+      (items) => items.List === "Trending"
     );
-    const filteredbest = products.filter((items) => items.category === "sofa");
-    const filternew = products.filter((items) => items.category === "mobile");
+    const filteredbest = products.filter((items) => items.List === "Best");
+    const filternew = products.filter((items) => items.List === "New");
     setTrendingProducts(filteredTrending);
     setbestProducts(filteredbest);
     setnewArrivals(filternew);
