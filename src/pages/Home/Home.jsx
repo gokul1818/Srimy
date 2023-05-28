@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Helmet from "../../components/helmet/helmet";
 import { Container, Row, Col } from "reactstrap";
-import hero_img from "../../assets/hero.jpeg";
-import hero_img1 from "../../assets/hero1.jpg";
-import hero_img2 from "../../assets/hero2.jpg";
 
 import "../../styles/home.css";
 import { Link } from "react-router-dom";
@@ -13,10 +10,9 @@ import Service from "../../service/service";
 import ProductList from "../../components/ui/ProductList";
 // import products from "../../assets/data/products";
 import useGetData from "../../customhook/useGetData";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+
 import LimitedOffer from "../../components/ui/limitedOffers";
+import SwipperImg from "../../components/ui/swipperImg";
 
 const Home = () => {
   const { data: products, loading } = useGetData("products");
@@ -38,34 +34,15 @@ const Home = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   });
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 1000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
-  };
-
+  // const { data: productData } = useGetData(`swipperImg`);
   return (
     <div>
       <Helmet title={"Home"}>
         <section className="section">
-          <div className="mt-4 swipper">
-            {/* <h1>Welcome to the Homepage</h1> */}
-            <Slider {...settings}>
-              <div className="swip">
-                <img src={hero_img} alt="Image 1" />
-              </div>
-              <div className="swip">
-                <img src={hero_img1} alt="Image 2" />
-              </div>
-              <div className="swip">
-                <img src={hero_img2} alt="Image 3" />
-              </div>
-            </Slider>
-          </div>
+          {/* {data.map((item, index) => (
+          ))} */}
+          <SwipperImg />
+
           <Container>
             <Row>
               {/* <Col lg="12">
@@ -109,7 +86,9 @@ const Home = () => {
           <Container>
             <Row>
               <Col lg="12">
-                <h1 className="text-center m-5 text-capitalize fs-2 fw-bold  ">Trending Products</h1>
+                <h1 className="text-center m-5 text-capitalize fs-2 fw-bold  ">
+                  Trending Products
+                </h1>
               </Col>
 
               <ProductList data={trendingProducts} loading={loading} />
@@ -120,7 +99,9 @@ const Home = () => {
           <Container>
             <Row>
               <Col lg="12">
-                <h1 className="text-center m-5 text-capitalize fs-2 fw-bold ">Limmited offers</h1>
+                <h1 className="text-center m-5 text-capitalize fs-2 fw-bold ">
+                  Limmited offers
+                </h1>
               </Col>
 
               <LimitedOffer />
@@ -133,7 +114,9 @@ const Home = () => {
           <Container>
             <Row>
               <Col lg="12">
-                <h3 className="text-center m-5 text-capitalize fs-2 fw-bold">Best Products</h3>
+                <h3 className="text-center m-5 text-capitalize fs-2 fw-bold">
+                  Best Products
+                </h3>
               </Col>
               <ProductList data={bestProducts} loading={loading} />
             </Row>
@@ -172,10 +155,12 @@ const Home = () => {
           <Container>
             <Row>
               <Col lg="12">
-                <h3 className="text-center m-5 text-capitalize fs-2 fw-bold">New Arrivals Products</h3>
+                <h3 className="text-center m-5 text-capitalize fs-2 fw-bold">
+                  New Arrivals Products
+                </h3>
               </Col>
-              <ProductList data={newArrivals}  loading={loading} />
-            </Row> 
+              <ProductList data={newArrivals} loading={loading} />
+            </Row>
           </Container>
         </section>
       </Helmet>

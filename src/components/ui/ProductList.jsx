@@ -1,9 +1,15 @@
 import ProductCard from "./ProductCard";
-const ProductList = ({ data, loading }) => {
+import useGetData from "../../customhook/useGetData";
+
+
+
+const ProductList = ( ) => {
+  const { data: productData, loading } = useGetData(`products`);
+
   return (
     <>
       {!loading ? (
-        data.map((item, index) => <ProductCard item={item} key={index} />)
+        productData.map((item, index) => <ProductCard item={item} key={index} />)
       ) : (
         <div className="loading-card">
           <div className="shine"></div>
