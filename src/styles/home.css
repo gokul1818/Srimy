@@ -8,12 +8,35 @@
 .swipper{
     width: 100%;
     overflow-y: hidden;
+
     /* padding: 0px 30px; */
 }
+/* Slider.css */
+.slider {
+    position: relative;
+  }
+  
+
+  
+  /* .swip::before {
+    content: '';
+    position: absolute;
+    top: 80%;
+    left: 0%;
+    right: 0%;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to bottom ,transparent, rgba(255, 255, 255, 0.352));
+  }
+   */
+  
+  
 .swip  img{
+ 
     object-fit: cover;
     height: 450px;
     width: 100%;
+
 }
 
 .content_sub {
@@ -166,6 +189,7 @@
         object-fit: cover;
         height: 300px;
         width: 100%;
+        background-image: linear-gradient(to bottom, #d7d7d7, #ff6600);
     }
 
     .content_sub {

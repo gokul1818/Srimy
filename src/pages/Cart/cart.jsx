@@ -117,7 +117,7 @@ const Cart = () => {
                       style={{
                         textDecorationLine: "none",
                       }}
-                      to="/Checkout"
+                      to="/checkout"
                     >
                       <button className="">checkout</button>
                     </NavLink>
