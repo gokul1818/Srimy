@@ -39,46 +39,12 @@ const Home = () => {
     <div>
       <Helmet title={"Home"}>
         <section className="section">
-          {/* {data.map((item, index) => (
-          ))} */}
+        
           <SwipperImg />
 
           <Container>
             <Row>
-              {/* <Col lg="12">
-              
-              </Col> */}
-
-              {/* <Col lg="6" md="6">
-                <div className="content mt-3">
-                  <p className="subtitle mb-0 ">latest Products in {year}</p>
-                  <h2 className="heading">
-                    Additive manufacturing process that creates a physical
-                    object from a digital design
-                  </h2>
-                  <p className="content_sub">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Perspiciatis vitae harum natus nisi nam cumque nostrum
-                    consequuntur distinctio neque iure.
-                    </p>
-                  <motion.button whileTap={{ scale: 1.2 }} className="shop_btn">
-                    <Link
-                      style={{
-                        textDecorationLine: "none",
-                        color: "white",
-                      }}
-                      to="Shop"
-                    >
-                      Shop Now
-                    </Link>
-                  </motion.button>
-                </div>
-              </Col>
-              <Col ld="6" md="6">
-                <div className="hero_img ">
-                  <img className="" src={hero_img} alt="img"></img>
-                  </div>
-              </Col> */}
+            
             </Row>
           </Container>
         </section>

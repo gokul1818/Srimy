@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import Login from "../Login/login";
 import { useNavigate } from "react-router";
 // import { useNavigate } from "@reach/router";
@@ -23,6 +23,9 @@ const Profile = () => {
         toast.error(error.message);
       });
   };
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <section className="profile_head d-block mx-auto  ">
      

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { Container, Row, Col, Form, FormGroup } from "reactstrap";
 import { Link } from "react-router-dom";
 import Helmet from "../../components/helmet/helmet";
@@ -60,7 +60,9 @@ const Signup = () => {
       setloading(false);
       toast.error(error.message);
     }
-  };
+  };  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <Helmet>

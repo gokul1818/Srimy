@@ -76,7 +76,9 @@ const ProductDetails = () => {
       })
     );
     toast.success("added to cart ");
-  };
+  };  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <section className="head">
       <Helmet>

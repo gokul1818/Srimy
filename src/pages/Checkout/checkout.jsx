@@ -18,7 +18,9 @@ const Checkout = () => {
       setshippingfee(49)
     }
   }, [setshippingfee]);
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <Helmet title="checkout">
       <CommonSection title="Checkout" />
