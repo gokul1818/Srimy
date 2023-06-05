@@ -1,6 +1,6 @@
 import React from "react";
 const Helmet=(props)=>{
-document.title ='3d shape-'+ props.title
+document.title ='Makerly-'+ props.title
     return(
 <div>{props.children}</div>
 )

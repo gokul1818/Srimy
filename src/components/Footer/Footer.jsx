@@ -1,9 +1,8 @@
 import React from "react";
 import "../Footer/Footer.css";
 import { Container, Col, Row, ListGroup, ListGroupItem } from "reactstrap";
-import logo from "../../assets/Makerly.png";
+import logo from "../../assets/Makerl.svg";
 import { Link } from "react-router-dom";
-import logo1 from '../../assets/logo.png' 
 
 const Footer = () => {
   const year= new Date().getFullYear()
@@ -14,10 +13,9 @@ const Footer = () => {
         <Row>
           <Col lg="4">
             <div className="logo">
-              <img src={logo1} alt="logo"></img>
-              <div>
+           
                 <h2><img src={logo} alt="logo"></img></h2>
-              </div>
+             
             </div>
             <p>
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam

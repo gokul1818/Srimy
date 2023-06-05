@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { Container, Row } from "reactstrap";
-import logo from "../../assets/Makerly.png";
+import logo from "../../assets/Makerl.svg";
 import logo1 from "../../assets/logo.png";
 import userIcon from "../../assets/profile.png";
 import { NavLink, useNavigate } from "react-router-dom";
@@ -14,6 +14,8 @@ import { toast } from "react-toastify";
 const Header = () => {
   const navigate = useNavigate();
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
+  const totalfav = useSelector((state) => state.wishlist.totalQuantity);
+
   const { currentUser } = UseAuth();
   const showProfileActionRef = useRef(null);
   console.log(currentUser, "ll");
@@ -31,7 +33,6 @@ const Header = () => {
       path: "Cart",
       display: "Cart",
     },
-
   ];
   const logout = () => {
     signOut(auth)
@@ -49,7 +50,9 @@ const Header = () => {
   const navigateToCart = () => {
     navigate("/cart");
   };
-
+  const navigateToWishlist = () => {
+    navigate("/wishlist");
+  };
   const profiletoggle = () => {
     navigate("/profile");
   };
@@ -64,14 +67,8 @@ const Header = () => {
         <Row>
           <div className="navbar">
             <NavLink to="Home">
-              <div className="logo ms-2 ">
-                {/* <img className="logo_img" src={logo1} alt="logo"></img> */}
-                <div>
-                  <h2>
-                    {" "}
-                    <img src={logo} alt="logo"></img>
-                  </h2>
-                </div>
+              <div className="logo ms-1 ">
+                <img src={logo} alt="logo"></img>
               </div>
             </NavLink>
 
@@ -105,8 +102,8 @@ const Header = () => {
                 <span className="bandage">{totalQuantity}</span>
                 <i class="ri-shopping-cart-fill "></i>
               </span>
-              <span className="fav_icon me-4">
-                <span className="bandage">1</span>
+              <span className="fav_icon me-4" onClick={navigateToWishlist}>
+                <span className="bandage">{totalfav}</span>
 
                 <i class="ri-heart-3-line"></i>
               </span>
@@ -115,8 +112,8 @@ const Header = () => {
                   onClick={profiletoggle}
                   // ref={showProfileActionRef}
                   // onClick={toggleProfile}
-                  src={ userIcon}
-                  alt={ "img"}
+                  src={userIcon}
+                  alt={"img"}
                 ></img>
                 {/* <div
                   className="profile_action"

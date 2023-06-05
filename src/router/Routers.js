@@ -10,7 +10,7 @@ import Signup from "../pages/Signup/singup";
 import Checkout from "../pages/Checkout/checkout";
 import ProtectedRoute from "./protectedRoute";
 import Profile from "../pages/Profile/profile";
-
+import Wishlist from "../pages/Wishlist/wishlist";
 const Routers = () => {
   return (
     <Routes>
@@ -21,18 +21,17 @@ const Routers = () => {
       <Route path="/signup" element={<Signup />} />
       <Route path="/shop/:id" element={<Productdetails />} />
       <Route path="/cart" element={<Cart />} />
+      <Route path="/wishlist" element={<Wishlist />} />
+
       <Route
         path="/checkout"
         element={
-            <Checkout />
+          <Checkout />
           // <ProtectedRoute>
           // </ProtectedRoute>
         }
       />
-      <Route path="/profile" element={
-        <Profile />
-
-      } />
+      <Route path="/profile" element={<Profile />} />
     </Routes>
   );
 };
