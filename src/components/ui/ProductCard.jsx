@@ -73,7 +73,7 @@ const ProductCard = ({ item, loading }) => {
     <Col lg="3" md="4" sm="6" xs="6" className="">
       <section className="caard">
         <motion.div
-          whileTap={{ scale: 1.1, transition: { duration: 0.3 } }}
+          // whileTap={{ scale: 1.1, transition: { duration: 0.3 } }}
           className="products_items"
         >
           <Link
