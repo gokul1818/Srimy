@@ -21,7 +21,7 @@ root.render(
       <PersistGate loading={null} persistor={persistor}>
         <ToastContainer
           theme="light"
-          position="top-center"
+          position="top-right"
           autoClose={1000}
           hideProgressBar={false}
           newestOnTop={false}

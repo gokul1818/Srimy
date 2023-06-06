@@ -26,11 +26,17 @@ const Routers = () => {
       <Route
         path="/checkout"
         element={
-          <Checkout />
-          // <ProtectedRoute>
-          // </ProtectedRoute>
+          <ProtectedRoute>
+            <Checkout></Checkout>
+          </ProtectedRoute>
         }
       />
+      {/* <ProtectedRoute path="/checkout" element={<Checkout />} /> */}
+
+      {/* <Route path="/checkout" element={<ProtectedRoute />}>
+        <Route  element={<Checkout />} />
+      </Route> */}
+
       <Route path="/profile" element={<Profile />} />
     </Routes>
   );
