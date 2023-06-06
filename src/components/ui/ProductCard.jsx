@@ -72,6 +72,24 @@ const ProductCard = ({ item, loading }) => {
   return (
     <Col lg="3" md="4" sm="6" xs="6" className="">
       <section className="caard">
+        <motion.span className="Wishlist_delete" onClick={toggleWishlist}>
+          {change ? (
+            <div className="Wishlist_border">
+
+            <motion.div whileTap={{ scale: 1.3 }} style={{ color: "red" }}>
+              <i class="ri-heart-3-fill"></i>
+            </motion.div>
+            </div>
+          ) : (
+            <div className="Wishlist_border">
+
+            <motion.div whileTap={{ scale: 1.2 }}>
+              <i class="ri-heart-3-fill"></i>
+            </motion.div>
+            </div>
+          )}
+        </motion.span>
+
         <motion.div
           whileTap={{ scale: 1.1, transition: { duration: 0.3 } }}
           className="products_items"
@@ -97,17 +115,10 @@ const ProductCard = ({ item, loading }) => {
         </motion.div>
         <div className="product_bottom ">
           <span>₹{item.price}</span>
-          <div>
-            <motion.span whileTap={{ scale: 1.2 }}>
-              <i class="ri-add-fill" onClick={addTocart}></i>
-            </motion.span>
-            <motion.span whileTap={{ scale: 1.2 }} onClick={toggleWishlist}>
-              {change ? (
-                <i class="ri-delete-bin-line"></i>
-              ) : (
-                <i class="ri-heart-fill"></i>
-              )}
-            </motion.span>
+          <div className="cart_button">
+            <span   onClick={addTocart}>
+              <button>add to cart</button>
+            </span>
           </div>
         </div>
       </section>
