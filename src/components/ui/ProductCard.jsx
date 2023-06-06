@@ -76,6 +76,22 @@ const ProductCard = ({ item, loading }) => {
           // whileTap={{ scale: 1.1, transition: { duration: 0.3 } }}
           className="products_items"
         >
+          <motion.span className="Wishlist_delete" onClick={toggleWishlist}>
+            {change ? (
+              <div className="Wishlist_border">
+                <motion.div whileTap={{ scale: 1.3 }} style={{ color: "red" }}>
+                  <i class="ri-heart-3-fill"></i>
+                </motion.div>
+              </div>
+            ) : (
+              <div className="Wishlist_border">
+                <motion.div whileTap={{ scale: 1.2 }}>
+                  <i class="ri-heart-3-fill"></i>
+                </motion.div>
+              </div>
+            )}
+          </motion.span>
+
           <Link
             to={`/shop/${item.id}`}
             style={{
@@ -83,25 +99,6 @@ const ProductCard = ({ item, loading }) => {
               color: "black",
             }}
           >
-            <motion.span className="Wishlist_delete" onClick={toggleWishlist}>
-              {change ? (
-                <div className="Wishlist_border">
-                  <motion.div
-                    whileTap={{ scale: 1.3 }}
-                    style={{ color: "red" }}
-                  >
-                    <i class="ri-heart-3-fill"></i>
-                  </motion.div>
-                </div>
-              ) : (
-                <div className="Wishlist_border">
-                  <motion.div whileTap={{ scale: 1.2 }}>
-                    <i class="ri-heart-3-fill"></i>
-                  </motion.div>
-                </div>
-              )}
-            </motion.span>
-
             <div className="products_img">
               <img src={item.imgUrl} alt="img"></img>
             </div>
