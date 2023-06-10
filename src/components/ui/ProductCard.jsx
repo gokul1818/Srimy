@@ -25,7 +25,8 @@ const ProductCard = ({ item, loading }) => {
     setChange(isWishlistItem);
   }, [wishlist_item]);
 
-  const toggleWishlist = () => {
+  const toggleWishlist = (e) => {
+    e.preventDefault();
     if (change) {
       dispatch(Wishlist.deleteItems(item.id));
       toast.success("Product removed from the wishlist");
@@ -76,16 +77,20 @@ const ProductCard = ({ item, loading }) => {
           // whileTap={{ scale: 1.1, transition: { duration: 0.3 } }}
           className="products_items"
         >
-          <motion.span className="Wishlist_delete" onClick={toggleWishlist}>
+          <motion.span className="Wishlist_delete">
             {change ? (
               <div className="Wishlist_border">
-                <motion.div whileTap={{ scale: 1.3 }} style={{ color: "red" }}>
+                <motion.div
+                  onClick={toggleWishlist}
+                  whileTap={{ scale: 1.3 }}
+                  style={{ color: "red" }}
+                >
                   <i class="ri-heart-3-fill"></i>
                 </motion.div>
               </div>
             ) : (
               <div className="Wishlist_border">
-                <motion.div whileTap={{ scale: 1.2 }}>
+                <motion.div onClick={toggleWishlist} whileTap={{ scale: 1.2 }}>
                   <i class="ri-heart-3-fill"></i>
                 </motion.div>
               </div>
