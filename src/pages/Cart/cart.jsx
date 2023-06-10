@@ -3,21 +3,36 @@ import "../../styles/cart.css";
 import Helmet from "../../components/helmet/helmet";
 import { Container, Row, Col } from "reactstrap";
 import CommonSection from "../../components/ui/Commonsection";
-import td_img from "../../assets/images/arm-chair-03.jpg";
 import { motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 // import { motion } from "framer-motion";
+import UseAuth from "../../customhook/useAuth";
 import { cart_Action } from "../../redux/slicer/cart_slice";
+import Checkout from "../Checkout/checkout";
+import Button from "../../components/common/Button/button";
 const Cart = () => {
+  const { currentUser } = UseAuth();
   const cart_items = useSelector((state) => state.cart.cartItems);
   const totalAmount = useSelector((state) => state.cart.totalAmount);
   const [totalamt, setTotalamt] = useState();
   const [shippingfee, setshippingfee] = useState();
+  const [showLoader, setShowLoader] = useState(false);
+  const [checkout, setCheckout] = useState(false);
   useEffect(() => {
     window.scrollTo(0, 0);
-  });
+  }, []);
+  const handleCheckout = () => {
+    setShowLoader(true);
+    setTimeout(() => {
+      setShowLoader(false);
+      setCheckout(true);
+      window.scrollTo(0, 250);
+    }, 1000);
+  };
+  
+
 
   useEffect(() => {
     if (totalAmount > 1000) {
@@ -27,11 +42,10 @@ const Cart = () => {
     }
   }, [setshippingfee]);
 
-  // console.log(result, "dd");
   return (
-    <Helmet title="cart">
-      <CommonSection title="shopping cart" />
-      <section>
+    <Helmet title={checkout ? "cart/Checkout" : "cart"}>
+      {!checkout ? <CommonSection title="shopping cart" /> : ""}
+      <section style={{ marginTop: "70px" }}>
         <Container>
           <Row>
             <Col ld="9">
@@ -113,20 +127,37 @@ const Cart = () => {
                   </div>
                 </div>
                 <div className="contbtn">
+                  {currentUser ? (
+                    <Button
+                      text="Submit"
+                      onClick={handleCheckout}
+                      loading={showLoader}
+                      disabled={showLoader}
+                    />
+                  ) : (
                     <NavLink
                       style={{
                         textDecorationLine: "none",
                       }}
-                      to="/checkout"
+                      to="/login"
                     >
-                      <button className="">checkout</button>
+                      <button className="">Login/SignUp</button>
                     </NavLink>
-                  </div>
+                  )}
+                </div>
               </Col>
             )}
           </Row>
         </Container>
       </section>
+      {checkout ? (
+        <>
+          <hr></hr>
+          <Checkout />
+        </>
+      ) : (
+        ""
+      )}
     </Helmet>
   );
 };

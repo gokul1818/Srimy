@@ -6,31 +6,31 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import "remixicon/fonts/remixicon.css";
 import "bootstrap/dist/css/bootstrap.css";
-import { Provider } from 'react-redux';
-import { PersistGate } from 'redux-persist/integration/react';
-import { store, persistor } from './redux/store';
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
+import { store, persistor } from "./redux/store";
 // import store from "./redux/store";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import ReactModal from "react-modal";
 const root = ReactDOM.createRoot(document.getElementById("root"));
+ReactModal.setAppElement("#root"); 
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <ToastContainer
-          theme="light"
-          position="top-right"
-          autoClose={1000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          pauseOnHover={false}
-        />
-        <App />
+        <PersistGate loading={null} persistor={persistor}>
+          <ToastContainer
+            theme="light"
+            position="top-right"
+            autoClose={1000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            pauseOnHover={false}
+          />
+          <App />
         </PersistGate>
-
       </Provider>
     </BrowserRouter>
   </React.StrictMode>

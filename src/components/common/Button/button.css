@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Anek+Malayalam:wght@100;200;300;400;500;600;700;800&display=swap');
+
+.submit-btn {
+    font-family: 'Anek Malayalam', sans-serif;
+    background: #0d6ef5;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 18px;
+    position: relative;
+    color: #ffffff;
+    min-width: 200px;
+    height: 50px;
+    cursor: pointer;
+    outline: none;
+}
+
+.submit-btn:disabled {
+    background: #0080ff;
+    color: #9fa3a9;
+    cursor: not-allowed;
+}
+
+.submit-spinner-btn {
+    /* font-family: 'Anek Malayalam', sans-serif; */
+    /* background: #0d6ef5; */
+    /* border: none; */
+    /* width: 10px; */
+    /* outline: none; */
+    /* border-radius: 8px; */
+    /* font-weight: 700; */
+    /* font-size: 14px; */
+    /* color: #ffffff; */
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    left: 0%;
+    bottom: 0%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* cursor: pointer; */
+    /* outline: none; */
+}

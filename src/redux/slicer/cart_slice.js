@@ -4,7 +4,7 @@ const initialState = {
   cartItems: [],
   totalAmount: 0,
   totalQuantity: 0,
-  shipping:0,
+  shipping: 0,
 };
 const cartSlice = createSlice({
   name: "cart",
@@ -14,7 +14,6 @@ const cartSlice = createSlice({
       const newItem = action.payload;
       const existingItems = state.cartItems.find(
         (item) => item.id === newItem.id
-        
       );
       console.log(newItem, "ddd");
       state.totalQuantity++;
@@ -36,8 +35,7 @@ const cartSlice = createSlice({
         (total, item) => total + Number(item.price) * Number(item.quantity),
         0
       );
-      
-      
+
       console.log(state.totalQuantity);
       console.log(state.cartItems);
     },
@@ -54,6 +52,11 @@ const cartSlice = createSlice({
       );
     },
 
+    clearCart: (state) => {
+      state.cartItems = [];
+      state.totalAmount = 0;
+      state.totalQuantity = 0;
+    },
   },
 });
 
