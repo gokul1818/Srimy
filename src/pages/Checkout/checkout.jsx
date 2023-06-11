@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import "../../styles/checkout.css";
 import Helmet from "../../components/helmet/helmet";
 import { Container, Row, Col, Form, FormGroup } from "reactstrap";
-import { motion } from "framer-motion";
 import { useSelector, useDispatch } from "react-redux";
 import { db } from "../../firebase.config";
 import { collection, addDoc } from "firebase/firestore";
@@ -10,6 +9,8 @@ import { toast } from "react-toastify";
 import Button from "../../components/common/Button/button";
 import { useNavigate } from "react-router";
 import { cart_Action } from "../../redux/slicer/cart_slice";
+import { getAuth } from "firebase/auth";
+import Order from "../Order/Order";
 const Checkout = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -46,9 +47,14 @@ const Checkout = () => {
     e.preventDefault();
     setShowLoader(true);
     try {
+      const user = getAuth().currentUser;
+      const userId = user.uid; // Assuming you have access to the user ID
+      // console.log('userId', userId)
+
       const docRef = await collection(db, "Orders");
       await addDoc(docRef, {
         Name: UserName,
+        UserId: userId, // Store the user ID with the order
         email: Email,
         PhoneNumber: PhoneNumber,
         Address: Address,
@@ -179,6 +185,7 @@ const Checkout = () => {
               </Col>
             </Row>
           </Form>
+          <Order/>
         </Container>
       </section>
     </Helmet>

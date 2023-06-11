@@ -11,6 +11,7 @@ import { useSelector } from "react-redux";
 import UseAuth from "../../customhook/useAuth";
 import { cart_Action } from "../../redux/slicer/cart_slice";
 import Checkout from "../Checkout/checkout";
+import Order from "../Order/Order";
 import Button from "../../components/common/Button/button";
 const Cart = () => {
   const { currentUser } = UseAuth();
@@ -31,8 +32,6 @@ const Cart = () => {
       window.scrollTo(0, 250);
     }, 1000);
   };
-  
-
 
   useEffect(() => {
     if (totalAmount > 1000) {
@@ -150,6 +149,7 @@ const Cart = () => {
           </Row>
         </Container>
       </section>
+      <Order/>
       {checkout ? (
         <>
           <hr></hr>

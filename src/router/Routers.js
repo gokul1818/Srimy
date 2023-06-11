@@ -11,6 +11,7 @@ import Checkout from "../pages/Checkout/checkout";
 import ProtectedRoute from "./protectedRoute";
 import Profile from "../pages/Profile/profile";
 import Wishlist from "../pages/Wishlist/wishlist";
+import Order from "../pages/Order/Order";
 const Routers = () => {
   return (
     <Routes>
@@ -29,7 +30,14 @@ const Routers = () => {
         }
       />
       <Route path="/wishlist" element={<Wishlist />} />
-
+      <Route
+        path="/orders"
+        element={
+          <ProtectedRoute>
+            <Order />
+          </ProtectedRoute>
+        }
+      />
       {/* <Route
         path="/checkout"
         element={

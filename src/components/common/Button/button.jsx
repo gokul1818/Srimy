@@ -1,12 +1,4 @@
-import {
-  BeatLoader,
-  DotLoader,
-  FadeLoader,
-  HashLoader,
-  MoonLoader,
-  PulseLoader,
-  RingLoader,
-} from "react-spinners";
+import { PulseLoader } from "react-spinners";
 import "./button.css";
 
 const Button = ({ onClick, text, loading = false, disabled, type }) => {
