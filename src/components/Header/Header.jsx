@@ -6,11 +6,11 @@ import userIcon from "../../assets/profile.png";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import "../Header/header.css";
-import { Link } from "react-router-dom";
 import UseAuth from "../../customhook/useAuth";
 import { auth } from "../../firebase.config";
 import { signOut } from "firebase/auth";
 import { toast } from "react-toastify";
+import OffCanvasMenu from "./OffCanvas";
 const Header = () => {
   const navigate = useNavigate();
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
@@ -45,119 +45,47 @@ const Header = () => {
       });
   };
 
-  const menuRef = useRef(null);
-  const menu_toggle = () => menuRef.current.classList.toggle("active_menu");
   const navigateToCart = () => {
     navigate("/cart");
   };
   const navigateToWishlist = () => {
     navigate("/wishlist");
   };
-  const profiletoggle = () => {
-    navigate("/profile");
-  };
-  const toggleProfile = () =>
-    showProfileActionRef.current.classList.toggle("show_profile_action");
+  // const profiletoggle = () => {
+  //   navigate("/profile");
+  // };
   return (
     <header
       className="stickey_header"
       // ref={menuRef}
     >
-      <Container>
-        <Row>
-          <div className="navbar">
-            <NavLink to="Home">
-              <div className="logo ms-1 ">
-                <img src={logo} alt="logo"></img>
-              </div>
-            </NavLink>
-
-            <div
-              className="navigation pt-3 "
-              ref={menuRef}
-              onClick={menu_toggle}
-            >
-              <ul className="menu">
-                {Navlink.map((items) => (
-                  <li className="list">
-                    <NavLink
-                      className={({ isActive }) =>
-                        isActive ? "active" : "inactive"
-                      }
-                      style={{
-                        textDecorationLine: "none",
-                        color: "white",
-                        marginRight: "20px",
-                      }}
-                      to={items.path}
-                    >
-                      {items.display}
-                    </NavLink>
-                  </li>
-                ))}
-              </ul>
+      <Row>
+        <div className="navbar ">
+          <NavLink to="Home">
+            <div className="logo ms-1 ">
+              <img src={logo} alt="logo"></img>
             </div>
-            <div className="nav_icon">
-              <span className="cart_icon me-4" onClick={navigateToCart}>
-                <span className="bandage">{totalQuantity}</span>
-                <i class="ri-shopping-cart-fill "></i>
-              </span>
-              <span className="fav_icon me-4" onClick={navigateToWishlist}>
-                <span className="bandage">{totalfav}</span>
+          </NavLink>
 
-                <i class="ri-heart-3-line"></i>
-              </span>
-              <div className="profile">
-                <img
-                  onClick={profiletoggle}
-                  // ref={showProfileActionRef}
-                  // onClick={toggleProfile}
-                  src={userIcon}
-                  alt={"img"}
-                ></img>
-                {/* <div
-                  className="profile_action"
-                  ref={showProfileActionRef}
-                  // onClick={toggleProfile}
-                >
-                  {currentUser ? (
-                    <span onClick={logout}>Logout</span>
-                  ) : (
-                    <div className="d-flex">
-                      <Link
-                        to="/Signup"
-                        style={{
-                          textDecorationLine: "none",
-                          color: "black",
-                        }}
-                      >
-                        Signup{" "}
-                      </Link>
-                      /
-                      <Link
-                        to="/Login"
-                        style={{
-                          textDecorationLine: "none",
-                          color: "black",
-                        }}
-                      >
-                        Login{" "}
-                      </Link>
-                    </div>
-                  )}
-                </div> */}
-              </div>
-              <span
-                // ref={menuRef}
-                onClick={menu_toggle}
-                className="mobile_menu mx-3"
-              >
-                <i class="ri-menu-line"></i>
-              </span>
-            </div>
+          <div className="nav_icon">
+            <span className="cart_icon me-4" onClick={navigateToCart}>
+              <span className="bandage">{totalQuantity}</span>
+              <i class="ri-shopping-cart-fill "></i>
+            </span>
+            <span className="fav_icon me-4" onClick={navigateToWishlist}>
+              <span className="bandage">{totalfav}</span>
+
+              <i class="ri-heart-3-line"></i>
+            </span>
+            {/* <div className="profile">
+              <img onClick={profiletoggle} src={userIcon} alt={"img"}></img>
+            </div> */}
+            <span className="mobile_menu mx-3">
+              <OffCanvasMenu />
+            </span>
           </div>
-        </Row>
-      </Container>
+        </div>
+      </Row>
     </header>
   );
 };

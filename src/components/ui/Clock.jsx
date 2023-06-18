@@ -9,7 +9,7 @@ const Clock = () => {
   // const [limit, setlimit] = useState();
   let interval;
 
-  useEffect(() => {
+  useEffect(() => { 
     // Get Firestore instance
     const db = getFirestore();
 

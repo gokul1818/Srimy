@@ -2,24 +2,37 @@ import React, { useEffect, useState } from "react";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 import { db } from "../../firebase.config";
+import { Container, Row, Col, Button, Progress } from "reactstrap";
+import "../../styles/order.css";
+import OrderModal from "./OrderModal";
+// import styles from './Dropdown.module.css';
 
 const Order = () => {
   const [orderdata, setOrderdata] = useState([]);
+  const [cart, setCart] = useState([]);
   const [userID, setUserId] = useState(null);
+  const [userName, setUserName] = useState();
   const [loading, setLoading] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
+  console.log("cart", orderdata);
 
-  const fetchOrdersByUserId = async () => {
+  const fetchOrdersByUserId = async (userID) => {
     try {
+      setLoading(true);
       const ordersRef = collection(db, "Orders");
       const q = query(ordersRef, where("UserId", "==", userID));
       const querySnapshot = await getDocs(q);
 
       const orders = [];
+      const cartItems = [];
       querySnapshot.forEach((doc) => {
-        orders.push(doc.data());
+        const order = doc.data();
+        orders.push(order);
+        cartItems.push(order.cart);
       });
 
       setOrderdata(orders);
+      setCart(cartItems);
       setLoading(false);
     } catch (error) {
       console.error("Error fetching orders:", error);
@@ -31,30 +44,130 @@ const Order = () => {
     const user = getAuth().currentUser;
     if (user) {
       const userId = user.uid;
+      const userName = user.displayName;
       setUserId(userId);
-      fetchOrdersByUserId();
+      setUserName(userName);
+      fetchOrdersByUserId(userId);
     }
   }, []);
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
   return (
-    <div style={{ marginTop: "70px" }}>
-      {orderdata.length > 0 ? (
-        orderdata.map((item, index) => (
-          <div key={index}>
-            <p>Name: {item.Name}</p>
-            <p>Email: {item.email}</p>
-            <p>Phone Number: {item.PhoneNumber}</p>
-            {/* Render other order details */}
+    <section className="order_detail_outlet">
+      <Container>
+        {loading ? (
+          <div className="Swipper_card">
+            <div className="shine"></div>
           </div>
-        ))
-      ) : (
-        <div>No orders found.</div>
-      )}
-    </div>
+        ) : orderdata.length > 0 ? (
+          <div className="order_details">
+            <h4 className="my-4">
+              Thanks For Your Order, <span>{userName}</span>
+            </h4>
+            <hr></hr>
+            <h5>Receipt</h5>
+            <Row>
+              {orderdata.map((order, index) => (
+                //  const date =new Date(order.Date)
+                <div className="order_card" key={index}>
+                  <Col lg="12">
+                    {cart[index].map((item, i) => (
+                      <div className="order_card_data" key={i}>
+                        <Col lg="2">
+                          <img src={item.image}></img>
+                        </Col>
+                        <Col className="ms-3" xs="10" md="10" lg="10">
+                          <Row className="p-0">
+                            <p className="order_date_details p-0">{`Order ${
+                              order.Delivery == true ? "Delivery" : "placed"
+                            } on ${order.Date.toDate().toLocaleString("en-US", {
+                              year: "numeric",
+                              month: "long",
+                              day: "numeric",
+                            })}`}</p>
+                          </Row>{" "}
+                          <Row className="m-0 p-0">
+                            <Col className="order_Product_name" lg="12">
+                              {item.productName}
+                            </Col>
+                          </Row>
+                        </Col>
+                      </div>
+                    ))}
+
+                    {order.Delivery == true ? (
+                      <>
+                        {/* <hr className="mx-5 p-0 my-2 " /> */}
+                        <div className="Progress_bar">
+                          <h6 className="d-flex align-items-end">
+                            Track Order
+                          </h6>
+                          <Col xs="9">
+                            <Progress animated color="success" value={100}>
+                              Delivered
+                            </Progress>
+                          </Col>
+                        </div>
+                      </>
+                    ) : (
+                      order.paid == true && (
+                        <div>
+                          {/* <hr className="mx-5 p-0 my-0" /> */}
+                          <div className="Progress_bar ">
+                            <h6 className="d-flex align-items-end">
+                              Track Order
+                            </h6>
+                            <Col xs="9">
+                              <Progress multi>
+                                {order.paid == true ? (
+                                  <Progress
+                                    bar
+                                    color="info"
+                                    animated
+                                    value="50"
+                                  >
+                                    preparing
+                                  </Progress>
+                                ) : (
+                                  ""
+                                )}
+
+                                {order.outForDelivery == true ? (
+                                  <Progress bar color="primary" value="40">
+                                    {" "}
+                                    out for delivery
+                                  </Progress>
+                                ) : (
+                                  ""
+                                )}
+                              </Progress>
+                            </Col>
+                          </div>
+                        </div>
+                      )
+                    )}
+                  </Col>
+                  <Col
+                    className="d-flex justify-content-end mb-3 pay_btn"
+                    lg="12"
+                  >
+                    {order.paid == false ? (
+                      <Button color="danger">paynow</Button>
+                    ) : (
+                      ""
+                    )}
+                    {console.log(orderdata.paid)}
+                  </Col>
+                </div>
+              ))}
+            </Row>
+
+            {/* <OrderModal /> */}
+          </div>
+        ) : (
+          <div className="order_height">No orders found.</div>
+        )}
+      </Container>
+    </section>
   );
 };
 

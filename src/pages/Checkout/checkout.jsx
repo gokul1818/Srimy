@@ -4,13 +4,16 @@ import Helmet from "../../components/helmet/helmet";
 import { Container, Row, Col, Form, FormGroup } from "reactstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { db } from "../../firebase.config";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, updateDoc, doc } from "firebase/firestore";
 import { toast } from "react-toastify";
 import Button from "../../components/common/Button/button";
 import { useNavigate } from "react-router";
 import { cart_Action } from "../../redux/slicer/cart_slice";
 import { getAuth } from "firebase/auth";
 import Order from "../Order/Order";
+import { arrayUnion } from "firebase/firestore";
+import { Timestamp } from "firebase/firestore";
+
 const Checkout = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -48,41 +51,54 @@ const Checkout = () => {
     setShowLoader(true);
     try {
       const user = getAuth().currentUser;
-      const userId = user.uid; // Assuming you have access to the user ID
-      // console.log('userId', userId)
+      const userId = user.uid;
+      const orderId = Math.floor(Math.random() * 1000000);
+      const currentDate = Timestamp.now();
 
-      const docRef = await collection(db, "Orders");
-      await addDoc(docRef, {
+      // Store the order in the "Orders" collection
+      const ordersRef = collection(db, "Orders");
+      const orderDocRef = await addDoc(ordersRef, {
         Name: UserName,
-        UserId: userId, // Store the user ID with the order
+        UserId: userId,
         email: Email,
         PhoneNumber: PhoneNumber,
         Address: Address,
         Pincode: Pincode,
         state: State,
         cart: cart_items,
+        Date: currentDate,
+        OrderId: orderId,
+        paid: false,
+        outForDelivery: false,
+        Delivery: false,
         TotalCost: totalAmount + shippingfee,
       });
+
+      // Get the user document reference
+      const userDocRef = doc(db, "Users", userId);
+
+      // Update the user's document with the order ID
+      await updateDoc(userDocRef, {
+        orders: arrayUnion(orderDocRef.id), // Assuming you have a field named "orders" in the user's document
+      });
+
+      // Clear form inputs and navigate to home page
       setUserName("");
       setEmail("");
-      setEnterDescription("");
       setPhoneNumber("");
       setAddress("");
       setPincode("");
-      setEnterList("");
       setState("");
       setloading(false);
       navigate("/home");
-      setTimeout(() => {
-        setShowLoader(false);
-      }, 1000);
-      toast.success("order placed");
+
+      // Display success toast and clear the cart
+      toast.success("Order placed successfully");
       dispatch(cart_Action.clearCart());
     } catch (error) {
       toast.error(error.message);
-      setTimeout(() => {
-        setShowLoader(false);
-      }, 1000);
+    } finally {
+      setShowLoader(false);
     }
   };
 
@@ -185,7 +201,6 @@ const Checkout = () => {
               </Col>
             </Row>
           </Form>
-          <Order/>
         </Container>
       </section>
     </Helmet>

@@ -149,7 +149,6 @@ const Cart = () => {
           </Row>
         </Container>
       </section>
-      <Order/>
       {checkout ? (
         <>
           <hr></hr>

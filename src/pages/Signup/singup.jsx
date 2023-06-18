@@ -42,7 +42,7 @@ const Signup = () => {
               displayName: username,
               photoURL: downloadURL,
             });
-            await setDoc(doc(db, "users", user.uid), {
+            await setDoc(doc(db, "Users", user.uid), {
               uid: user.uid,
               displayName: username,
               email,

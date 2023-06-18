@@ -12,6 +12,7 @@ import { toast } from "react-toastify";
 import { motion } from "framer-motion";
 const Profile = () => {
   const navigate = useNavigate();
+
   const { currentUser } = UseAuth();
   const logout = () => {
     signOut(auth)
@@ -23,6 +24,10 @@ const Profile = () => {
         toast.error(error.message);
       });
   };
+  const handleOrder =()=>{
+    navigate("/orders");
+
+  }
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -42,6 +47,12 @@ const Profile = () => {
            >
              logout
            </motion.button>
+         <motion.button 
+             className="btn btn-primary"
+             onClick={handleOrder}
+             >
+         My Order
+         </motion.button>
          </div>
        </Col>
      </Row>
