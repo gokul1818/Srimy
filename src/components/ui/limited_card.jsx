@@ -51,7 +51,7 @@ const Limited_card = ({ item }) => {
               </div>
               <div className="add_cart  ">
                 <span>₹{item.discountedPrice}</span>
-                <motion.button whileTap={{scale:'1.2'}} onClick={addTocart}>Add to cart</motion.button>
+                {/* <motion.button whileTap={{scale:'1.2'}} onClick={addTocart}>Add to cart</motion.button> */}
               </div>
             </div>
           </div>

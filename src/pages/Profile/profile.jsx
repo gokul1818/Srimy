@@ -1,4 +1,4 @@
-import React,{useEffect} from "react";
+import React, { useEffect } from "react";
 import Login from "../Login/login";
 import { useNavigate } from "react-router";
 // import { useNavigate } from "@reach/router";
@@ -24,58 +24,52 @@ const Profile = () => {
         toast.error(error.message);
       });
   };
-  const handleOrder =()=>{
+  const handleOrder = () => {
     navigate("/orders");
-
-  }
+  };
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   return (
     <section className="profile_head d-block mx-auto  ">
-     
-      {currentUser ? 
-     <Container>
-     <Row>
-       <Col lg="12" md="12">
-         <div className="profile_bar">
-           {/* <label className="label ">Profile photo</label> */}
-           <motion.button
-             whileTap={{ scale: "0.9" }}
-             className="btn btn-primary"
-             onClick={logout}
-           >
-             logout
-           </motion.button>
-         <motion.button 
-             className="btn btn-primary"
-             onClick={handleOrder}
-             >
-         My Order
-         </motion.button>
-         </div>
-       </Col>
-     </Row>
-     <Row>
-       <Col lg="12" md="12">
-         <Row className="profile_box mt-5">
-          
-           <Col lg="6">
-             <div className="profile_details d-block my-auto">
-               <p className="user_name ">
-                 UserName: {currentUser.displayName}
-               </p>
-               <hr />
+      {currentUser ? (
+        <Container>
+          <Row>
+            <Col lg="12" md="12">
+              <div className="profile_bar">
+                {/* <label className="label ">Profile photo</label> */}
+                <motion.button
+                  whileTap={{ scale: "0.9" }}
+                  className="btn btn-primary"
+                  onClick={logout}
+                >
+                  logout
+                </motion.button>
+              </div>
+            </Col>
+          </Row>
+          <Row>
+            <Col lg="12" md="12">
+              <Row className="profile_box mt-5">
+                <Col lg="6">
+                  <div className="profile_details d-block my-auto">
+                    <p className="user_name ">
+                      UserName: {currentUser.displayName}
+                    </p>
+                    <hr />
 
-               <p className="user_name ">Email-ID : {currentUser.email} </p>
-             </div>
-           </Col>
-         </Row>
-       </Col>
-     </Row>
-   </Container>  :
-   navigate('/signup')
-    }
+                    <p className="user_name ">
+                      Email-ID : {currentUser.email}{" "}
+                    </p>
+                  </div>
+                </Col>
+              </Row>
+            </Col>
+          </Row>
+        </Container>
+      ) : (
+        navigate("/signup")
+      )}
     </section>
   );
 };

@@ -154,24 +154,23 @@
 
     }
 
-
-
-
-    .nav_icon .profile img {
-        height: 30px;
-        cursor: pointer;
-        border-radius: 50%;
-        margin-bottom: 10px;
+    .logo img {
+        padding-bottom: 20px;
+        /* display: flex; */
+        /* align-items: center; */
     }
 
-    .nav_icon.profile {
-        position: relative;
-        z-index: 10;
-        /* display: none; */
+    .nav_icon {
+        margin-right: 0%;
+        padding-bottom: 20px;
+    }
+
+    .navbar {
+        display: flex;
+        align-items: center;
     }
 
 
-    .logo_img {
-        display: none;
-    }
+
+
 }

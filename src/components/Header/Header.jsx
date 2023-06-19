@@ -34,17 +34,6 @@ const Header = () => {
       display: "Cart",
     },
   ];
-  const logout = () => {
-    signOut(auth)
-      .then(() => {
-        toast.success("log out successfully");
-        navigate("/home");
-      })
-      .catch((error) => {
-        toast.error(error.message);
-      });
-  };
-
   const navigateToCart = () => {
     navigate("/cart");
   };
@@ -61,7 +50,7 @@ const Header = () => {
     >
       <Row>
         <div className="navbar ">
-          <NavLink to="Home">
+          <NavLink to="/">
             <div className="logo ms-1 ">
               <img src={logo} alt="logo"></img>
             </div>

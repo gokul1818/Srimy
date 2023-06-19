@@ -44,7 +44,7 @@ const OffCanvasMenu = () => {
         </NavLink>
       )}
       {currentUser && (
-        <NavLink to="#" onClick={handlelogout}>
+        <NavLink to="/" onClick={handlelogout}>
           Logout
         </NavLink>
       )}

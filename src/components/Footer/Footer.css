@@ -1,27 +1,40 @@
-.footer{
+.footer {
     background: #443c63;
     color: #ffffff;
     padding-top: 10px;
 }
-.footer_links span{
+
+.footer_links span {
     color: #dedede;
 
-font-weight: 500;
-font-size: 20px;
+    font-weight: 500;
+    font-size: 20px;
 }
+
+.footer_links li {
+    background: #443c63;
+border: transparent;
+outline: none;
+}
+
+li {
+    background: #443c63;
+}
+
 @media only screen and (max-width: 600px) {
 
-    .footer{
+    .footer {
         background: #443c63;
         color: #ffffff;
         padding-top: 10px;
     }
+
     .footer_links span {
         color: #dedede;
 
 
-    font-weight: 500;
-    font-size: 15px;
+        font-weight: 500;
+        font-size: 15px;
     }
-    
+
 }

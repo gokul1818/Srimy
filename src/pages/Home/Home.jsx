@@ -52,7 +52,7 @@ const Home = () => {
           <Container>
             <Row>
               <Col lg="12">
-                <h1 className="text-center m-5 text-capitalize fs-2 fw-bold  ">
+                <h1 className="text-center  ">
                   Trending Products
                 </h1>
               </Col>
@@ -65,7 +65,7 @@ const Home = () => {
           <Container>
             <Row>
               <Col lg="12">
-                <h1 className="text-center m-5 text-capitalize fs-2 fw-bold ">
+                <h1 className="text-center ">
                   Limmited offers
                 </h1>
               </Col>
@@ -80,9 +80,9 @@ const Home = () => {
           <Container>
             <Row>
               <Col lg="12">
-                <h3 className="text-center m-5 text-capitalize fs-2 fw-bold">
+                <h1 className="text-center">
                   Best Products
-                </h3>
+                </h1>
               </Col>
               <ProductList data={bestProducts} loading={loading} />
             </Row>
@@ -121,9 +121,9 @@ const Home = () => {
           <Container>
             <Row>
               <Col lg="12">
-                <h3 className="text-center m-5 text-capitalize fs-2 fw-bold">
+                <h1 className="text-center">
                   New Arrivals Products
-                </h3>
+                </h1>
               </Col>
               <ProductList data={newArrivals} loading={loading} />
             </Row>

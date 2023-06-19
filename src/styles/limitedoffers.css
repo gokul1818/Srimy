@@ -33,15 +33,12 @@
 
 .discount {
     position: absolute;
-    /* position: relative; */
-    /* float: right; */
     display: flex;
+    z-index: 100;
     top: 0%;
     right: 0%;
-    /* width: 150px; */
     padding: 4px 8px;
     background-color: #704d79;
-    /* color: #fff; */
     font-weight: 100;
     margin: 0%;
 }
@@ -53,9 +50,15 @@
     /* transform: rotate(45deg); */
 }
 
+.discountTag {
+    z-index: 1000;
+}
+
 .discountTag i {
     position: absolute;
     top: 0%;
+    z-index: 100;
+
     color: black;
     /* right: 0%; */
     left: 0%;
@@ -67,6 +70,8 @@
     position: absolute;
     top: 38%;
     font-size: 10px;
+    z-index: 100;
+
     font-weight: 600;
     left: 10%;
     color: #d2d2d2;
@@ -93,10 +98,10 @@
 .offer_card {
     position: relative;
     padding: 0px 10px;
-    background: linear-gradient(to right, #122c4468, #122c4468);
+    /* background: linear-gradient(to right, #122c4468, #122c4468); */
 
     overflow: hidden;
-    /* background:#d0cdff; */
+    background: #d0cdff;
     border-radius: 10px;
     /* background: linear-gradient(to right, #122c4468, #f8f8f8); */
 }
@@ -154,6 +159,7 @@
     margin-left: auto;
     margin-right: auto;
     display: flex;
+    object-fit: cover;
     justify-content: center;
     width: 250px;
 }
@@ -252,7 +258,7 @@
 
         position: absolute;
         top: 0%;
-
+        z-index: 0;
         right: 0%;
         left: 0%;
         bottom: 0%;
@@ -264,6 +270,7 @@
         height: 200px;
         width: 100%;
         object-fit: contain;
+        z-index: -10;
         /* position: absolute; */
         /* top: 0%; */
         /* right: 0%; */

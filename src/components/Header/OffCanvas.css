@@ -5,8 +5,9 @@
   /* background: #fff; */
   /* color: #fff; */
   right: 20px;
+  font-weight: 300;
   z-index: 10;
-  top: 22px;
+  top: 25px;
 }
 
 .bm-burger-bars {

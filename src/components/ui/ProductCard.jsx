@@ -109,21 +109,21 @@ const ProductCard = ({ item, loading }) => {
             </div>
             <div className="product_info">
               <h4>{item.productName}</h4>
-              <span className="p-2">{item.category}</span>
+              <span className="">{item.category}</span>
               <span className="ps-2 text-decoration-line-through text-success ">
                 MRP: ₹{item.mrp}
               </span>
             </div>
           </Link>
         </motion.div>
-        <div className="product_bottom ">
-          <div>
-            <span>₹{item.price}</span>
+          <div className="product_bottom ">
+            <div>
+              <span>₹{item.price}</span>
+            </div>
+            {/* <div className="cart_button">
+              <button onClick={addTocart}>add to cart</button>
+            </div> */}
           </div>
-          <div className="cart_button">
-            <button onClick={addTocart}>add to cart</button>
-          </div>
-        </div>
       </section>
     </Col>
   );
