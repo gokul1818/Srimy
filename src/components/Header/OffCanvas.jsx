@@ -7,10 +7,14 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router";
 import UseAuth from "../../customhook/useAuth";
 import "./OffCanvas.css";
+import { useSelector } from "react-redux";
+
 const OffCanvasMenu = () => {
   const { currentUser } = UseAuth();
 
   const navigate = useNavigate();
+  const totalQuantity = useSelector((state) => state.cart.totalQuantity);
+  const totalfav = useSelector((state) => state.wishlist.totalQuantity);
 
   const [isOpen, setIsOpen] = useState(false);
   const closeMenu = () => {
@@ -44,11 +48,24 @@ const OffCanvasMenu = () => {
         </NavLink>
       )}
       {currentUser && (
+        <NavLink to="/wishlist" onClick={closeMenu}>
+          Wishlist
+          <i class="ri-heart-3-line ml-2"></i>
+          <span className="off_bandage1">({totalfav})</span>
+        </NavLink>
+      )}
+      {currentUser && (
+        <NavLink to="/cart" onClick={closeMenu}>
+          My Cart
+          <i class="ri-shopping-cart-fill ml-2 "></i>
+          <span className="off_bandage2">({totalQuantity})</span>
+        </NavLink>
+      )}
+      {currentUser && (
         <NavLink to="/" onClick={handlelogout}>
           Logout
         </NavLink>
       )}
-
       {!currentUser && (
         <NavLink to="/login" onClick={closeMenu}>
           Login/signup

@@ -10,7 +10,7 @@ const ProductList = ({ data, loading }) => {
       {!loading ? (
         data.map((item, index) => <ProductCard item={item} key={index} />)
       ) : (
-        <Row>
+        <Row className="w-100" >
 
          <Col lg='12'>
         <div className="loading-card">

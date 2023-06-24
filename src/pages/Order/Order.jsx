@@ -42,6 +42,7 @@ const Order = () => {
 
   useEffect(() => {
     const user = getAuth().currentUser;
+    window.scroll(0, 0);
     if (user) {
       const userId = user.uid;
       const userName = user.displayName;
@@ -86,8 +87,17 @@ const Order = () => {
                             })}`}</p>
                           </Row>{" "}
                           <Row className="m-0 p-0">
-                            <Col className="order_Product_name" lg="12">
-                              {item.productName}
+                            <Col
+                              className="order_Product_name d-flex justify-content-between"
+                              lg="12"
+                            >
+                              <div>{item.productName}</div>
+
+                              <div className="pay_btn">
+                                {order.paid == false && (
+                                  <Button color="danger">Unpaid</Button>
+                                )}
+                              </div>
                             </Col>
                           </Row>
                         </Col>
@@ -145,17 +155,6 @@ const Order = () => {
                         </div>
                       )
                     )}
-                  </Col>
-                  <Col
-                    className="d-flex justify-content-end mb-3 pay_btn"
-                    lg="12"
-                  >
-                    {order.paid == false ? (
-                      <Button color="danger">paynow</Button>
-                    ) : (
-                      ""
-                    )}
-                    {console.log(orderdata.paid)}
                   </Col>
                 </div>
               ))}

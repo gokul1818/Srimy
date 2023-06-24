@@ -15,7 +15,7 @@ const SwipperImg = () => {
     autoplaySpeed: 3000,
   };
   return (
-    <div className="mt-4 swipper">
+    <div className="swipper">
       {loading ? (
         <div className="Swipper_card">
           <div className="shine"></div>

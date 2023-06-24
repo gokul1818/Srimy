@@ -97,9 +97,10 @@
 
 .offer_card {
     position: relative;
-    padding: 0px 10px;
+    padding: 0px;
+    margin: 0px;
     /* background: linear-gradient(to right, #122c4468, #122c4468); */
-
+width: 100%;
     overflow: hidden;
     background: #d0cdff;
     border-radius: 10px;
@@ -129,7 +130,7 @@
 }
 
 .products_items {
-    width: 250px;
+    width: 100%;
     display: flex;
     cursor: pointer;
 }
@@ -151,6 +152,7 @@
     justify-content: center;
     /* margin-left: auto;
     margin-right: auto; */
+    width: 100%;
 
 }
 
@@ -161,7 +163,7 @@
     display: flex;
     object-fit: cover;
     justify-content: center;
-    width: 250px;
+    width: 100%;
 }
 
 .offer_info h4 {
@@ -267,7 +269,7 @@
     }
 
     .offer_img img {
-        height: 200px;
+        height: 170px;
         width: 100%;
         object-fit: contain;
         z-index: -10;

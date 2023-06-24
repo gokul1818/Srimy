@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef, Fragment } from "react";
 import "../../styles/cart.css";
 import Helmet from "../../components/helmet/helmet";
 import { Container, Row, Col } from "reactstrap";
@@ -7,13 +7,15 @@ import { motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-// import { motion } from "framer-motion";
+import lottie from "lottie-web";
 import UseAuth from "../../customhook/useAuth";
 import { cart_Action } from "../../redux/slicer/cart_slice";
 import Checkout from "../Checkout/checkout";
 import Order from "../Order/Order";
 import Button from "../../components/common/Button/button";
 const Cart = () => {
+  const conti = useRef(null);
+
   const { currentUser } = UseAuth();
   const cart_items = useSelector((state) => state.cart.cartItems);
   const totalAmount = useSelector((state) => state.cart.totalAmount);
@@ -24,6 +26,19 @@ const Cart = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  useEffect(() => {
+    const instance = lottie.loadAnimation({
+      container: conti.current,
+      renderer: "svg",
+      loop: true,
+      autoplay: true,
+      animationData: require("../../assets/cart.json"),
+    });
+
+    return () => instance.destroy();
+  }, [conti]);
+
   const handleCheckout = () => {
     setShowLoader(true);
     setTimeout(() => {
@@ -43,22 +58,22 @@ const Cart = () => {
 
   return (
     <Helmet title={checkout ? "cart/Checkout" : "cart"}>
-      {!checkout ? <CommonSection title="shopping cart" /> : ""}
       <section style={{ marginTop: "70px" }}>
         <Container>
           <Row>
             <Col ld="9">
               {cart_items == 0 ? (
                 <>
-                  <h4 className="text-center fs-4">no product found</h4>
-                  <div className="contbtn">
+                  <div ref={conti} className="animationContainer" />
+                  <div className=" Wishlist_is_Empty">
+                    <h2>Your cart is Empty!</h2>
                     <NavLink
                       style={{
                         textDecorationLine: "none",
                       }}
                       to="/Shop"
                     >
-                      <button className="">continue shopping </button>
+                      <button className="Wishlist_btn_primary">shop now</button>
                     </NavLink>
                   </div>
                 </>
