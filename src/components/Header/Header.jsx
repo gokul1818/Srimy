@@ -1,10 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { Container, Row, Col } from "reactstrap";
 import logo from "../../assets/Makerl.svg";
-import logo1 from "../../assets/logo.png";
-import userIcon from "../../assets/profile.png";
-import { NavLink, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import "../Header/header.css";
 import { useState } from "react";
 import UseAuth from "../../customhook/useAuth";
@@ -19,22 +16,7 @@ const Header = () => {
   const [products, setProducts] = useState([]);
   const [searchValue, setSearchvalue] = useState("");
   const { currentUser } = UseAuth();
-  console.log(currentUser, "ll");
-
-  const Navlink = [
-    {
-      path: "Home",
-      display: "Home",
-    },
-    {
-      path: "Shop",
-      display: "Shop",
-    },
-    {
-      path: "Cart",
-      display: "Cart",
-    },
-  ];
+  const location = useLocation();
 
   const handleSearch = () => {
     // e.preventDefault();
@@ -54,6 +36,10 @@ const Header = () => {
     handleSearch();
   }, [searchValue]);
 
+  useEffect(() => {
+    setProducts([]); // Clear products when URL changes
+  }, [location]);
+
   return (
     <header className="stickey_header">
       <Row>
@@ -68,7 +54,7 @@ const Header = () => {
             <input
               type="text"
               placeholder="Search..."
-              onChange={(e)=>setSearchvalue(e.target.value)}
+              onChange={(e) => setSearchvalue(e.target.value)}
               id="searchInput"
             />
             <span>
@@ -84,8 +70,9 @@ const Header = () => {
       </Row>
       <Container>
         <Row>
-          {products.length !== 0 && 
-          <ProductList data={products} searchList productLimit={5} />}
+          {products.length !== 0 && (
+            <ProductList data={products} searchList productLimit={5} />
+          )}
         </Row>
       </Container>
     </header>

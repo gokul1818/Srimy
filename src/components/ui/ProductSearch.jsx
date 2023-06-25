@@ -9,7 +9,10 @@ const ProductSearch = ({ item, loading }) => {
 
   const navigateToProduct = () => {
     navigate(`/shop/${item.id}`);
-    //  clearSearch();
+    const searchInput = document.getElementById("searchInput");
+    if (searchInput) {
+      searchInput.value = "";
+    }
   };
 
   return (
@@ -17,7 +20,7 @@ const ProductSearch = ({ item, loading }) => {
       <motion.div
         className="products_Search_items"
         onClick={navigateToProduct}
-        style={{cursor:"pointer"}}
+        style={{ cursor: "pointer" }}
       >
         <div className="products_Search_img">
           <img src={item.imgUrl} alt="img" />

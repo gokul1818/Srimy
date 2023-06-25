@@ -32,17 +32,13 @@
 
     .Product_list_search {
         margin-left: 30%;
-        /* margin-top: 20px; */
         width: 100%;
-        /* display: inline-block; */
         background-color: #dfdfdf;
-        margin-right: 10%;
+        margin-right: 0%;
     }
 
     .search_card {
         height: 50px;
-        /* width: 100%; */
-        /* display: block; */
     }
 
     .products_Search_items {
