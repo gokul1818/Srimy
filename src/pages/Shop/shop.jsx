@@ -75,7 +75,7 @@ const Shop = () => {
   });
   return (
     <Helmet title="shop ">
-      <CommonSection title="product" />
+      {/* <CommonSection title="product" /> */}
       <section>
         <Container>
           <Row>
@@ -95,7 +95,6 @@ const Shop = () => {
               <div className="filter_widget">
                 <select onChange={sortByFilter}>
                   <option>Sort By</option>
-
                   <option value="decending">High to Low</option>
                   <option value="ascending">Low to High</option>
                 </select>

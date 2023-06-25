@@ -57,7 +57,7 @@ const Home = () => {
                 </h1>
               </Col>
 
-              <ProductList data={trendingProducts} loading={loading} />
+              <ProductList  data={trendingProducts} loading={loading} />
             </Row>
           </Container>
         </section>

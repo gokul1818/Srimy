@@ -3,20 +3,17 @@ import { Col } from "reactstrap";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { cart_Action } from "../../redux/slicer/cart_slice";
 import { Wishlist } from "../../redux/slicer/wishlist";
 import "../../styles/ProductCard.css";
 import { toast } from "react-toastify";
 import { useState } from "react";
 import { useEffect } from "react";
-// import wishlist from "../../redux/slicer/wishlist";
 
 const ProductCard = ({ item, loading }) => {
   const [change, setChange] = useState();
   const dispatch = useDispatch();
   const wishlist_item = useSelector((state) => state.wishlist.WishlistItems);
 
-  console.log("first", wishlist_item);
 
   useEffect(() => {
     const isWishlistItem = wishlist_item.some(
@@ -43,32 +40,6 @@ const ProductCard = ({ item, loading }) => {
     }
   };
 
-  const addTocart = () => {
-    dispatch(
-      cart_Action.addItems({
-        id: item.id,
-        productName: item.productName,
-        price: item.price,
-        image: item.imgUrl,
-      })
-    );
-    toast.success("product added to cart successfully");
-  };
-  // const addWishlist = () => {
-  //   dispatch(
-  //     Wishlist.addItems({
-  //       id: item.id,
-  //       productName: item.productName,
-  //       price: item.price,
-  //       image: item.imgUrl,
-  //     })
-  //   );
-  //   toast.success("Wishlist added successfully");
-  // };
-  // const productdelete = () => {
-  //   dispatch(Wishlist.deleteItems(item.id));
-  //   toast.success("removed Wishlist successfully");
-  // };
 
   return (
     <Col lg="3" md="4" sm="6" xs="6" className="">
@@ -120,9 +91,6 @@ const ProductCard = ({ item, loading }) => {
             <div>
               <span>₹{item.price}</span>
             </div>
-            {/* <div className="cart_button">
-              <button onClick={addTocart}>add to cart</button>
-            </div> */}
           </div>
       </section>
     </Col>

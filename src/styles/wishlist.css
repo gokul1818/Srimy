@@ -52,7 +52,7 @@ border-radius: 5px;
     margin-bottom: 20px;
 }
 .Wishlist_is_Empty h2 {
-font-family: cursive;
+font-family: monospace;
 font-size:25px ;
 }
 .Wishlist_btn_primary{

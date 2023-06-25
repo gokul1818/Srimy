@@ -4,6 +4,7 @@ import wishlist from "./slicer/wishlist";
 const rootReducer = combineReducers({
   cart: cartslice,
   wishlist: wishlist,
+  
     // Add more reducers here as needed
 });
 
