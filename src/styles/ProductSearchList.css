@@ -2,7 +2,7 @@
     margin-left: 30%;
     width: 100%;
     /* overflow-y: scroll; */
-    background-color: #dfdfdf;
+    background-color: #ffffff;
     padding-top: 20px;
     margin-right: 20%;
 }
@@ -28,12 +28,21 @@
     font-size: 20px;
 }
 
+
+.review_comments {
+    border-top:
+        1px solid gey;
+    border-bottom: 1px solid grey;
+    padding: 5px;
+}
+
 @media only screen and (max-width: 600px) {
 
     .Product_list_search {
-        margin-left: 30%;
+        margin-left: 0%;
+        border-bottom: 1px;
         width: 100%;
-        background-color: #dfdfdf;
+        background-color: #ffffff;
         margin-right: 0%;
     }
 
@@ -46,16 +55,21 @@
     }
 
     .products_Search_img img {
-        width: 50px;
-        height: 50px;
+        width: 30px;
+        height: 30px;
     }
 
     .product_Search_info h4 {
         font-size: 15px;
+        margin: 0%;
     }
 
     .product_Search_info {
         margin-left: 20px;
+    }
+
+    .product_Search_info span {
+        font-size: 13px;
     }
 
 

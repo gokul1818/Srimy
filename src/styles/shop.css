@@ -36,8 +36,8 @@ margin: 20px 30px;
 .filter_widget select {
     margin: 10px 10px;
     font-family: 'Rubik';
-    padding: 10px 10px;
-    background-color:#443c63;
+    padding: 5px;
+    background-color:#96939e;
     color: white;
     cursor: pointer;
     border-radius: 5px;
@@ -51,7 +51,7 @@ margin: 20px 30px;
 
 .filter_widget select option {
     font-size: 15px;
-    background-color:#443c63;
+    background-color:#96939e;
 
 
 }

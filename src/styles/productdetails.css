@@ -78,13 +78,34 @@
     display: flex;
     margin-right: 20px;
     align-items: center;
-    color: goldenrod;
+    color: green;
     font-size: 15px;
-    padding: 20px 0px;
+    padding: 10px 0px;
     font-weight: 600;
 
 }
-.submit{
+
+.review_loader {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.review_comments h6 {
+    text-transform: capitalize;
+}
+
+.review_comments i {
+    color: green;
+}
+
+.review_comments p {
+    color: rgb(85, 85, 85);
+}
+
+.submit {
     background: rgb(104, 2, 104);
     color: #fff;
     border: none;
@@ -92,102 +113,104 @@
     border-radius: 5px;
     margin-bottom: 10px;
 }
+
 @media only screen and (max-width: 600px) {
     .product_img img {
         width: 350px;
         height: auto;
         object-fit: cover;
     }
-    
+
     .product_details h3 {
         /* margin-top: 40px; */
         padding-top: 40px;
         font-size: 30px;
         font-weight: 500;
-    
+
     }
-    
+
     .head {
         margin-top: 60px;
     }
-    
+
     .product_rating {
         display: flex;
         /* margin-right: 20px; */
         /* align-items: center; */
     }
-    
+
     .star {
         margin-right: 10px;
         color: gold;
     }
-    
+
     .price {
         font-size: 20px;
         font-weight: 500;
-    
+
     }
-    
+
     .shop_btn {
         background-color: rgb(34, 9, 104);
         color: #fff;
         padding: 5px 10px;
     }
-    
+
     .active {
         font-weight: 700;
     }
-    
+
     .tab_wrapper {
         cursor: pointer;
     }
-    
+
     .review_wrapper ul li {
         list-style: none;
     }
-    
+
     .review_wrapper li span {
         color: rgb(51, 255, 0);
     }
-    
+
     .review_form {
         padding-left: 0px;
-    
+
         /* margin-left: 70px; */
         /* display: flex; */
         /* align-items: center; */
         /* justify-content: center; */
     }
-    
+
     .form_grp input {
         width: 100%;
         margin-top: 10px;
         border: 1px solid rgb(112, 112, 112);
-        padding: 10px 15px ;
-    border-radius: 5px;
+        padding: 10px 15px;
+        border-radius: 5px;
     }
-    
+
     .form_grp textarea {
-        width:100%;
-    border-radius: 5px;
+        width: 100%;
+        border-radius: 5px;
 
         /* margin-top: 20px; */
         border: 1px solid rgb(112, 112, 112);
-        padding: 10px 15px ;
+        padding: 10px 15px;
     }
-    
+
     .form_grp span {
-     margin: 0;
+        margin: 0;
         display: flex;
-       padding: 0;
+        padding: 0;
         align-items: center;
         color: goldenrod;
         font-size: 15px;
         /* padding: 20px 0px; */
         font-weight: 600;
-    
+
     }
-    .submit{
+
+    .submit {
         background: rgb(104, 2, 104);
         color: #fff;
         border: none;

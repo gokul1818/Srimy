@@ -78,7 +78,7 @@ const Shop = () => {
       {/* <CommonSection title="product" /> */}
       <section>
         <Container>
-          <Row>
+          <Row className="mt-5 pt-1">
             <Col lg="2" md="3" xs="6">
               <div className="filter_widget">
                 <select onChange={handleFilter}>
@@ -93,25 +93,14 @@ const Shop = () => {
             </Col>
             <Col lg="3" md="3" xs="6">
               <div className="filter_widget">
-                <select onChange={sortByFilter}>
+                <select placeholder="Sort By" onChange={sortByFilter}>
                   <option>Sort By</option>
                   <option value="decending">High to Low</option>
                   <option value="ascending">Low to High</option>
                 </select>
               </div>
             </Col>
-            <Col lg="6" md="6" xs="12">
-              <div className="search_box text-center mx-auto">
-                <input
-                  type="text"
-                  placeholder="search..."
-                  onChange={handleSearch}
-                ></input>
-                <span>
-                  <i class="ri-search-2-line"></i>
-                </span>
-              </div>
-            </Col>
+           
           </Row>
         </Container>
       </section>
