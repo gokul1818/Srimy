@@ -28,6 +28,22 @@
     font-size: 20px;
 }
 
+.review_box {
+    max-height: 800px;
+    overflow-y: scroll;
+
+}
+
+.review_box::-webkit-scrollbar {
+    display: none;
+    width: 0px !important;
+    max-height: 300px;
+}
+
+.review_box {
+    max-height: 400px;
+
+}
 
 .review_comments {
     border-top:

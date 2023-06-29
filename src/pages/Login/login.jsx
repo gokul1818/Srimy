@@ -38,50 +38,62 @@ const Login = () => {
 
   return (
     <Helmet>
-      <section className="login_page mb-3">
+      <section className="login_page ">
         <Container>
           <Row>
-            {loading ? (<Col lg="12" className="text-center">
-              <h6>loading..</h6>
-            </Col>): (
+            {loading ? (
+              <Col lg="12" className="text-center">
+                <h6>loading..</h6>
+              </Col>
+            ) : (
               <Col lg="6  m-auto text-center form_box">
-              <Form className="login_form  " onSubmit={signIn}>
-                <h6 className=" fs-1 fw-1 my-4">Login</h6>
-                <FormGroup className="form_grp">
-                  <input
-                    value={email}
-                    onChange={(e) => setemail(e.target.value)}
-                    type="email"
-                    placeholder="enter your email"
-                  />
-                </FormGroup>
-                <FormGroup className="form_grp">
-                  <input
-                    value={password}
-                    onChange={(e) => setpassword(e.target.value)}
-                    type="password"
-                    placeholder="enter your password"
-                  />
-                </FormGroup>
-                <button
-                  style={{ width: "100px" }}
-                  className="check_out_btn my-4"
-                >
-                  Login
-                </button>
-                <Link
-                  style={{
-                    textDecorationLine: "none",
-                    color: "grey",
-                  }}
-                  to="/Signup"
-                >
-                  <motion.p whileTap={{ scale: 0.9 }}>
-                    Don't have an account? Create an account
-                  </motion.p>
-                </Link>
-              </Form>
-            </Col>
+                <Form className="login_form  " onSubmit={signIn}>
+                  <h2 className="my-4">Login</h2>
+                  <FormGroup className="form_grp">
+                    <div className="login_input_field">
+                      <input
+                        value={email}
+                        onChange={(e) => setemail(e.target.value)}
+                        type="email"
+                        placeholder="enter your email"
+                      />
+                      <span>
+                        <i class="ri-user-line"></i>
+                      </span>
+                    </div>
+                  </FormGroup>
+                  <FormGroup className="form_grp">
+                    <div className="login_input_field">
+                      <input
+                        value={password}
+                        onChange={(e) => setpassword(e.target.value)}
+                        type="password"
+                        placeholder="enter your password"
+                      />
+                      <span>
+                        <i class="ri-lock-2-line"></i>
+                      </span>
+                    </div>
+                  </FormGroup>
+                  <button
+                    style={{ width: "100px" }}
+                    className="check_out_btn my-4"
+                  >
+                    Login
+                  </button>
+                  <Link
+                    style={{
+                      textDecorationLine: "none",
+                      color: "grey",
+                    }}
+                    to="/Signup"
+                  >
+                    <motion.p whileTap={{ scale: 0.9 }}>
+                      Don't have an account? Create an account
+                    </motion.p>
+                  </Link>
+                </Form>
+              </Col>
             )}
           </Row>
         </Container>

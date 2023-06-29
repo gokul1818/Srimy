@@ -39,28 +39,30 @@ const OffCanvasMenu = () => {
       <NavLink to="/shop" onClick={closeMenu}>
         Shop
       </NavLink>
-      <NavLink to="/orders" onClick={closeMenu}>
-        My Orders
-      </NavLink>
+      {currentUser && (
+        <NavLink to="/orders" onClick={closeMenu}>
+          My Orders
+        </NavLink>
+      )}
       {currentUser && (
         <NavLink to="/profile" onClick={closeMenu}>
           My Profile
         </NavLink>
       )}
-      {currentUser && (
+      {
         <NavLink to="/wishlist" onClick={closeMenu}>
           Wishlist
           <i class="ri-heart-3-line ml-2"></i>
           <span className="off_bandage1">({totalfav})</span>
         </NavLink>
-      )}
-      {currentUser && (
+      }
+      {
         <NavLink to="/cart" onClick={closeMenu}>
           My Cart
           <i class="ri-shopping-cart-fill ml-2 "></i>
           <span className="off_bandage2">({totalQuantity})</span>
         </NavLink>
-      )}
+      }
       {currentUser && (
         <NavLink to="/" onClick={handlelogout}>
           Logout

@@ -1,6 +1,7 @@
 .product_img img {
     width: 500px;
-    height: auto;
+    height: 500px;
+    margin-top: 20px;
     object-fit: cover;
 }
 
@@ -116,8 +117,8 @@
 
 @media only screen and (max-width: 600px) {
     .product_img img {
-        width: 350px;
-        height: auto;
+        width: 320px;
+        height: 320px;
         object-fit: cover;
     }
 
@@ -141,12 +142,23 @@
 
     .star {
         margin-right: 10px;
-        color: gold;
+        color: green;
+    }
+
+    .leave_comments {
+        font-size: 15px;
+
+        font-weight: 700;
     }
 
     .price {
         font-size: 20px;
         font-weight: 500;
+
+    }
+
+    .form_grp i {
+        color: green;
 
     }
 
@@ -162,6 +174,10 @@
 
     .tab_wrapper {
         cursor: pointer;
+    }
+
+    .tab_wrapper h4 {
+        font-size: 18px;
     }
 
     .review_wrapper ul li {

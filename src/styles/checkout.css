@@ -15,7 +15,7 @@
     display: flex;
     justify-content: space-between;
 }
-.check_out_btn {
+/* .check_out_btn {
 
     width: 100%;
     outline: none;
@@ -27,7 +27,7 @@
     
     background-color:#2991c2;
 
-}
+} */
 .form_grp {
     padding:  0 5px;
 

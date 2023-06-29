@@ -10,11 +10,13 @@ import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import useGetData from "../../customhook/useGetData";
 import { db } from "../../firebase.config";
+import { useLocation } from "react-router-dom";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { cart_Action } from "../../redux/slicer/cart_slice";
 import { DotLoader, BarLoader, ScaleLoader } from "react-spinners";
 import useAuth from "../../customhook/useAuth";
 const ProductDetails = () => {
+  const location = useLocation();
   const dispatch = useDispatch();
   const { currentUser } = useAuth();
   const [product, setProduct] = useState({});
@@ -33,6 +35,7 @@ const ProductDetails = () => {
       return;
     }
     const reviewUsername = currentUser.displayName;
+
     const reviewUserMsg = reviewMsg.current.value;
 
     const reviewObj = {
@@ -41,35 +44,27 @@ const ProductDetails = () => {
       rating,
     };
 
-    // Get the specific document reference
     const docRef = doc(db, "products", id);
 
     try {
       setloading(true);
-      // Get the existing document data
       const docSnap = await getDoc(docRef);
       if (docSnap.exists()) {
-        // Get the existing comments array
         const comments = docSnap.data().comments || [];
-
-        // Add the new comment to the comments array
         const updatedComments = [...comments, reviewObj];
-
-        // Update the document with the updated comments array
         await updateDoc(docRef, { comments: updatedComments });
-
         toast.success("Comment added successfully");
-        // reviewUser.current.value = "";
         reviewMsg.current.value = "";
         setRating("");
         setloading(false);
       } else {
-        console.log("No product found");
         setloading(false);
+        console.log("No product found");
       }
     } catch (error) {
       console.log(error);
-      toast.error("Failed to add comment");
+      setloading(false);
+      // toast.error("error");
     }
   };
 
@@ -85,8 +80,9 @@ const ProductDetails = () => {
         console.log("No product found");
       }
     };
+    window.scrollTo(0, 0);
     getProduct();
-  }, [product]);
+  }, [products, location]);
 
   const { imgUrl, category, productName, price, description, shortDesc } =
     product;
@@ -108,10 +104,6 @@ const ProductDetails = () => {
     toast.success("Added to cart");
   };
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
     <section className="head">
       <Helmet>
@@ -120,7 +112,7 @@ const ProductDetails = () => {
             <Container>
               <Row>
                 <Col lg="6">
-                  <div className="product_img mt-4">
+                  <div className="product_img ">
                     <img src={imgUrl} alt="img" />
                   </div>
                 </Col>
@@ -164,19 +156,19 @@ const ProductDetails = () => {
             <Container>
               <Row>
                 <Col lg="12">
-                  <div className="tab_wrapper d-flex align-items-center mt-5 gap-5 ">
-                    <h6
+                  <div className="tab_wrapper d-flex align-items-center mt-3 gap-5 ">
+                    <h4
                       className={`${tab === "desc" ? "active mr-4" : "mr-4 "}`}
                       onClick={() => setTab("desc")}
                     >
                       Description
-                    </h6>
-                    <h6
+                    </h4>
+                    <h4
                       className={`${tab === "rev" ? "active" : ""}`}
                       onClick={() => setTab("rev")}
                     >
                       Review
-                    </h6>
+                    </h4>
                   </div>
 
                   {tab === "desc" ? (
@@ -188,7 +180,7 @@ const ProductDetails = () => {
                       <div className="review_wrapper">
                         <div className="review_form mx-5">
                           <form onSubmit={(e) => handleSubmit(e)}>
-                            <h4 className="d-block">Leave your comments</h4>
+                            <h4 className="d-block leave_comments">Leave your comments</h4>
                             {loading ? (
                               <div className="review_loader ">
                                 <ScaleLoader></ScaleLoader>{" "}
@@ -258,7 +250,7 @@ const ProductDetails = () => {
                                 <div className="form_grp">
                                   <textarea
                                     placeholder="Review"
-                                    rows={5}
+                                    rows={3}
                                     ref={reviewMsg}
                                     required
                                   ></textarea>
@@ -274,7 +266,7 @@ const ProductDetails = () => {
                             )}
                           </form>
                         </div>
-                        <div style={{ height: "800px", overflowY: "scroll" }}>
+                        <div className="review_box">
                           {comments && comments.length > 0 ? (
                             <div>
                               <h4>Comments:</h4>
