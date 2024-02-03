@@ -40,13 +40,12 @@ const Home = () => {
       <Helmet title={"Home"}>
         <section className="section">
           <SwipperImg />
-
-          <Container>
+          {/* <Container>
             <Row></Row>
-          </Container>
+          </Container> */}
         </section>
-        <section className="trending_sale">
-          <Container>
+        <section className="trending_sale mt-5">
+          <Container >
             <Row>
               <Col lg="12">
                 <h1 className="text-center  ">Manufacturing Units</h1>

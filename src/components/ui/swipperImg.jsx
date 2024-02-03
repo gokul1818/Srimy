@@ -21,8 +21,7 @@ const SwipperImg = () => {
         "https://assets.newatlas.com/dims4/default/74c9a2a/2147483647/strip/true/crop/2000x1125+0+188/resize/1200x675!/quality/90/?url=http%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Fdb%2Fe5%2Ffe59c7c24f15884adbdc3ec8304d%2Fgears.jpg",
     },
     {
-      imageUrl:
-        "https://engmag.in/wp-content/uploads/2022/01/Industrial-Gear-and-Gear-Motor-Market-750x430.jpg",
+      imageUrl:"https://media.hswstatic.com/eyJidWNrZXQiOiJjb250ZW50Lmhzd3N0YXRpYy5jb20iLCJrZXkiOiJnaWZcL2dlYXJzLTEuanBnIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjo4Mjh9fX0=",
     },
   ];
 
