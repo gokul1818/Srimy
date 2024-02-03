@@ -5,7 +5,7 @@ import { Container, Row, Col } from "reactstrap";
 import CommonSection from "../../components/ui/Commonsection";
 import { useParams } from "react-router-dom";
 import { motion } from "framer-motion";
-import ProductList from "../../components/ui/ProductList";
+import ManufactureUnit from "../../components/ui/ManufactureUnit";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import useGetData from "../../customhook/useGetData";
@@ -180,7 +180,9 @@ const ProductDetails = () => {
                       <div className="review_wrapper">
                         <div className="review_form mx-5">
                           <form onSubmit={(e) => handleSubmit(e)}>
-                            <h4 className="d-block leave_comments">Leave your comments</h4>
+                            <h4 className="d-block leave_comments">
+                              Leave your comments
+                            </h4>
                             {loading ? (
                               <div className="review_loader ">
                                 <ScaleLoader></ScaleLoader>{" "}
@@ -324,7 +326,7 @@ const ProductDetails = () => {
                 <Col lg="12">
                   <h4 className="related_products">You might also like</h4>
                 </Col>
-                <ProductList data={relatedProducts} />
+                <ManufactureUnit data={relatedProducts} />
               </Row>
             </Container>
           </section>

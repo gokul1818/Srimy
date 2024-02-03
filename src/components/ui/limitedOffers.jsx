@@ -11,17 +11,41 @@ import { doc, deleteDoc } from "firebase/firestore";
 import Limited_card from "./limited_card";
 const LimitedOffer = () => {
   // const textRef = useRef(null);
-  const { data: productData, loading } = useGetData(`limitedOffers`);
+  // const { data: productData, loading } = useGetData(`limitedOffers`);
   // const deleteProduct = async (id) => {
   //   await deleteDoc(doc(db, "limitedOffers", id));
   //   toast.success("product deleted");
   // };
   // console.log(productData)
-
+  const productData = [
+    {
+      imageUrl:
+        "https://www.polyfit.co.in/wp-content/uploads/2015/10/Hose-assemblies-1.jpg",
+      productName: "High Pressure Hose",
+    },
+    {
+      imageUrl:"https://www.polyfit.co.in/wp-content/uploads/2015/10/pipe-and-tube-bending.jpg",
+      productName: "High Pressure Hose",
+    },
+    {
+      imageUrl:
+        "https://www.polyfit.co.in/wp-content/uploads/2015/10/Hose-assemblies-1.jpg",
+      productName: "High Pressure Hose",
+    },
+    {
+      imageUrl:
+        "https://www.polyfit.co.in/wp-content/uploads/2015/10/Hose-assemblies-1.jpg",
+      productName: "High Pressure Hose",
+    },
+    {
+      imageUrl:
+        "https://www.polyfit.co.in/wp-content/uploads/2015/10/Hose-assemblies-1.jpg",
+      productName: "High Pressure Hose",
+    },
+  ];
   return (
     <>
       {productData.map((item, index) => (
-        
         <Limited_card item={item} key={index} />
       ))}
     </>

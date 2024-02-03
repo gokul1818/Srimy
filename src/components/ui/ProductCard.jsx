@@ -48,16 +48,16 @@ const ProductCard = ({ item, loading }) => {
           // whileTap={{ scale: 1.1, transition: { duration: 0.3 } }}
           className="products_items"
         >
-          <motion.span className="Wishlist_delete">
+          {/* <motion.span className="Wishlist_delete">
             {change ? (
               <div className="Wishlist_border">
-                <motion.div
+                {/* <motion.div
                   onClick={toggleWishlist}
                   whileTap={{ scale: 1.3 }}
                   style={{ color: "red" }}
                 >
                   <i class="ri-heart-3-fill"></i>
-                </motion.div>
+                </motion.div> 
               </div>
             ) : (
               <div className="Wishlist_border">
@@ -66,10 +66,10 @@ const ProductCard = ({ item, loading }) => {
                 </motion.div>
               </div>
             )}
-          </motion.span>
+          </motion.span> */}
 
           <Link
-            to={`/shop/${item.id}`}
+            // to={`/shop/${item.id}`}
             style={{
               textDecorationLine: "none",
               color: "black",
@@ -81,16 +81,16 @@ const ProductCard = ({ item, loading }) => {
             <div className="product_info">
               <h4>{item.productName}</h4>
               <span className="">{item.category}</span>
-              <span className="ps-2 text-decoration-line-through text-success ">
+              {/* <span className="ps-2 text-decoration-line-through text-success ">
                 MRP: ₹{item.mrp}
-              </span>
+              </span> */}
             </div>
           </Link>
         </motion.div>
           <div className="product_bottom ">
-            <div>
+            {/* <div>
               <span>₹{item.price}</span>
-            </div>
+            </div> */}
           </div>
       </section>
     </Col>

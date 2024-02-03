@@ -5,17 +5,17 @@ import logo from "../../assets/Makerl.svg";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
-  const year= new Date().getFullYear()
+  const year = new Date().getFullYear();
   return (
-
     <section className="footer">
       <Container>
         <Row>
           <Col lg="4">
-            <div className="logo">
-           
-                <h2><img src={logo} alt="logo"></img></h2>
-             
+            <div className="">
+              <h2>
+                {/* <img src={logo} alt="logo"></img> */}
+                <p>SRIMY ENGINEERING</p>
+              </h2>
             </div>
             <p>
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam
@@ -23,7 +23,8 @@ const Footer = () => {
               suscipit repellendus hic.
             </p>
           </Col>
-          <Col lg="3" xs='6'>
+          <Col lg="4"></Col>
+          {/* <Col lg="3" xs='6'>
             <div className="footer_links">
               <h4>Top Categories</h4>
               <>
@@ -72,7 +73,7 @@ const Footer = () => {
                 </ListGroupItem>
               </>
             </div>
-          </Col>
+          </Col>  
           <Col lg="2" xs='6'>
           <div className="footer_links">
               <h4>Link</h4>
@@ -123,21 +124,24 @@ const Footer = () => {
                 </ListGroupItem>
               </>
             </div>
-          </Col>
-          <Col lg="3" xs='12'>
-          <div className="footer_links">
-              <h4>Contact</h4>
+          </Col> */}
+          <Col lg="3" xs="12">
+            <div className="footer_links">
+              <h4 className=" d-flex justify-content-center">Contact</h4>
               <>
-                <ListGroupItem className="ps-2">
+                <ListGroupItem className="">
                   <Link
-                  to='https://instagram.com/mr_rider.18?igshid=ZGUzMzM3NWJiOQ=='
+                    // to="https://instagram.com/mr_rider.18?igshid=ZGUzMzM3NWJiOQ=="
                     style={{
                       textDecorationLine: "none",
                       color: "#dedede",
                     }}
                   >
-                <i class="ri-instagram-line me-2"></i>
-                <span>Instagram</span>
+                    {/* <i class="ri-instagram-line me-2"></i> */}
+                    <span>
+                      Polyfit Fabricators Pvt Ltd. No. 3B – N.P. SIDCO
+                      Industrial Estate Ambattur Chennai – 600 098 India
+                    </span>
                   </Link>
                 </ListGroupItem>
                 <ListGroupItem className="ps-2">
@@ -148,8 +152,8 @@ const Footer = () => {
                     }}
                     to="/Shop"
                   >
-                  <i class="ri-phone-line me-2"></i>
-                  <span> 044 2364 0923</span>
+                    <i class="ri-phone-line me-2"></i>
+                    <span> 044 2364 0923</span>
                   </Link>
                 </ListGroupItem>
                 <ListGroupItem className="ps-2 ">
@@ -173,26 +177,19 @@ const Footer = () => {
                     to="#"
                   >
                     <i class="ri-mail-line me-2"></i>
-                  <span>Makerly@gmail.com</span>
-                  </Link>
-                </ListGroupItem>
-                <ListGroupItem className="ps-2 ">
-                  <Link
-                    style={{
-                      textDecorationLine: "none",
-                      color: "#dedede",
-                    }}
-                    to="#"
-                  >
-                    <i class="ri-map-pin-fill me-2"></i>
-                  <span>chennai</span>
+                    <span>xxx@gmail.com</span>
                   </Link>
                 </ListGroupItem>
               </>
             </div>
           </Col>
+        </Row>
+        <Row>
           <Col>
-          <p className="text-center  mb-0"> copy rights {year} developed by gokul. All rights reserved</p>
+            <p className="text-center  mb-0">
+              {" "}
+              copy rights {year} developed by xxx. All rights reserved
+            </p>
           </Col>
         </Row>
       </Container>

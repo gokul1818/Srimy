@@ -48,15 +48,18 @@
 
 .logo img {
     height: 60px;
-    width: 200% !important;
+    /* width: 200% !important; */
     margin-bottom: 5px;
-    margin-right: 10px;
+    /* margin-right: 10px; */
     color: #efefef;
 }
 
 .logo {
     display: flex;
-    float: inline-start;
+    padding-left: 10px;
+    align-items: center;
+    justify-content: center;
+    /* float: inline-start; */
 }
 
 

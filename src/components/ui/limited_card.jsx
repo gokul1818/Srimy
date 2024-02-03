@@ -33,15 +33,15 @@ const Limited_card = ({ item }) => {
           className="products_items d-block"
         >
           <div>
-            <div className="discountTag">
+            {/* <div className="discountTag">
               <i class="ri-price-tag-fill">
                 <div class="cross-line"></div>
                 <p> {calculateDiscountPercentage()} %</p>
               </i>
-            </div>
-            <div className="discount">
+            </div> */}
+            {/* <div className="discount">
               <span className="">₹{item.originalPrice}</span>
-            </div>
+            </div> */}
             <div className="offer_img">
               <img src={item.imageUrl} alt="img"></img>
             </div>
@@ -49,10 +49,9 @@ const Limited_card = ({ item }) => {
               <div className="offer_info">
                 <h4>{item.productName}</h4>
               </div>
-              <div className="add_cart  ">
+              {/* <div className="add_cart  ">
                 <span>₹{item.discountedPrice}</span>
-                {/* <motion.button whileTap={{scale:'1.2'}} onClick={addTocart}>Add to cart</motion.button> */}
-              </div>
+              </div> */}
             </div>
           </div>
         </motion.div>

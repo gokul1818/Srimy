@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import Clock from "../../components/ui/Clock";
 import { motion } from "framer-motion";
 import Service from "../../service/service";
-import ProductList from "../../components/ui/ProductList";
+import ManufactureUnit from "../../components/ui/ManufactureUnit";
 // import products from "../../assets/data/products";
 import useGetData from "../../customhook/useGetData";
 
@@ -39,25 +39,20 @@ const Home = () => {
     <div>
       <Helmet title={"Home"}>
         <section className="section">
-        
           <SwipperImg />
 
           <Container>
-            <Row>
-            
-            </Row>
+            <Row></Row>
           </Container>
         </section>
         <section className="trending_sale">
           <Container>
             <Row>
               <Col lg="12">
-                <h1 className="text-center  ">
-                  Trending Products
-                </h1>
+                <h1 className="text-center  ">Manufacturing Units</h1>
               </Col>
 
-              <ProductList  data={trendingProducts} loading={loading} />
+              <ManufactureUnit data={trendingProducts} loading={loading} />
             </Row>
           </Container>
         </section>
@@ -65,9 +60,7 @@ const Home = () => {
           <Container>
             <Row>
               <Col lg="12">
-                <h1 className="text-center ">
-                  Limmited offers
-                </h1>
+                <h1 className="text-center ">Products</h1>
               </Col>
 
               <LimitedOffer />
@@ -76,18 +69,16 @@ const Home = () => {
         </section>
         <Service />
 
-        <section className="best_sale">
+        {/* <section className="best_sale">
           <Container>
             <Row>
               <Col lg="12">
-                <h1 className="text-center">
-                  Best Products
-                </h1>
+                <h1 className="text-center">Best Products</h1>
               </Col>
-              <ProductList data={bestProducts} loading={loading} />
+              <ManufactureUnit data={bestProducts} loading={loading} />
             </Row>
           </Container>
-        </section>
+        </section> */}
         <section className="counter_page mt-3">
           {/* <Container>
             <Row>
@@ -117,18 +108,16 @@ const Home = () => {
             </Row>
           </Container> */}
         </section>
-        <section className="newarrivals_sale">
+        {/* <section className="newarrivals_sale">
           <Container>
             <Row>
               <Col lg="12">
-                <h1 className="text-center">
-                  New Arrivals Products
-                </h1>
+                <h1 className="text-center">New Arrivals Products</h1>
               </Col>
-              <ProductList data={newArrivals} loading={loading} />
+              <ManufactureUnit data={newArrivals} loading={loading} />
             </Row>
           </Container>
-        </section>
+        </section> */}
       </Helmet>
     </div>
   );

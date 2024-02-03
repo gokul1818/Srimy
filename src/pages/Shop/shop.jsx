@@ -3,7 +3,7 @@ import Helmet from "../../components/helmet/helmet";
 import CommonSection from "../../components/ui/Commonsection";
 import { Container, Row, Col } from "reactstrap";
 import "../../styles/shop.css";
-import ProductList from "../../components/ui/ProductList";
+import ManufactureUnit from "../../components/ui/ManufactureUnit";
 import useGetData from "../../customhook/useGetData";
 const Shop = () => {
   const { data: product, loading } = useGetData("products");
@@ -100,18 +100,17 @@ const Shop = () => {
                 </select>
               </div>
             </Col>
-           
           </Row>
         </Container>
       </section>
       <section>
         <Container>
           <Row>
-            {products.length === 0  && !loading ? (
+            {products.length === 0 && !loading ? (
               <h1 className="text-center fs-4">No products found</h1>
             ) : (
               // <ProductList data={productdata} />
-        <ProductList data={products}  loading={loading}/>
+              <ManufactureUnit data={products} loading={loading} />
             )}
           </Row>
         </Container>

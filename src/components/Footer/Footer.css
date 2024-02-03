@@ -1,40 +1,37 @@
 .footer {
-    background: #443c63;
-    color: #ffffff;
-    padding-top: 10px;
+  background: #443c63;
+  color: #ffffff;
+  padding-top: 10px;
 }
 
 .footer_links span {
-    color: #dedede;
+  color: #dedede;
 
-    font-weight: 500;
-    font-size: 20px;
+  font-weight: 500;
+  font-size: 12px;
 }
 
 .footer_links li {
-    background: #443c63;
-border: transparent;
-outline: none;
+  background: #443c63;
+  border: transparent;
+  outline: none;
 }
 
 li {
-    background: #443c63;
+  /* background: #443c63; */
 }
 
 @media only screen and (max-width: 600px) {
+  .footer {
+    background: #443c63;
+    color: #ffffff;
+    padding-top: 10px;
+  }
 
-    .footer {
-        background: #443c63;
-        color: #ffffff;
-        padding-top: 10px;
-    }
+  .footer_links span {
+    color: #dedede;
 
-    .footer_links span {
-        color: #dedede;
-
-
-        font-weight: 500;
-        font-size: 15px;
-    }
-
+    font-weight: 500;
+    font-size: 15px;
+  }
 }
